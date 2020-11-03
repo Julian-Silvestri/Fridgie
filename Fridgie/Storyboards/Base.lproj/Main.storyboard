@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fk0-kW-FJv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WJR-U6-av0">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -8,45 +8,160 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
+        <!--MainVC-->
         <scene sceneID="Yrh-hg-dzv">
             <objects>
-                <viewController id="Fk0-kW-FJv" userLabel="Main" customClass="MainVC" customModule="Fridgie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Fk0-kW-FJv" userLabel="MainVC" customClass="MainVC" customModule="Fridgie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A1f-Yp-rj2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="openFridge" translatesAutoresizingMaskIntoConstraints="NO" id="W5j-tH-RGz">
-                                <rect key="frame" x="26" y="160" width="323" height="435"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F1w-7l-jMV">
+                                <rect key="frame" x="48" y="182" width="262" height="370"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="370" id="uce-No-2MD"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fridgeCell" rowHeight="71" id="05r-jm-ZmY" customClass="FridgeCell" customModule="Fridgie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="262" height="71"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="05r-jm-ZmY" id="BNj-O8-NNv">
+                                            <rect key="frame" x="0.0" y="0.0" width="262" height="71"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqt-mR-jjB">
+                                                    <rect key="frame" x="16" y="11" width="200" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVB-Py-Cji">
+                                                    <rect key="frame" x="16" y="47" width="200" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="group" destination="JVB-Py-Cji" id="he7-MC-x3P"/>
+                                            <outlet property="name" destination="Dqt-mR-jjB" id="FJO-ot-iWK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fullFridgeOpen" translatesAutoresizingMaskIntoConstraints="NO" id="W5j-tH-RGz">
+                                <rect key="frame" x="8" y="145" width="359" height="439"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="439" id="xPy-Nf-3x1"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fridgie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E48-pw-DL1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fridgie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E48-pw-DL1">
                                 <rect key="frame" x="56" y="56" width="262" height="81"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="Zwv-bB-ZYi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="53"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="closedFridge" translatesAutoresizingMaskIntoConstraints="NO" id="93l-am-scJ">
-                                <rect key="frame" x="88" y="180" width="199" height="408"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yul-Cs-RCk">
+                                <rect key="frame" x="16" y="18" width="83" height="30"/>
+                                <state key="normal" title="Don't Touch"/>
+                                <connections>
+                                    <action selector="dontTouch:" destination="Fk0-kW-FJv" eventType="touchUpInside" id="JR3-Wj-dmH"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyFridgeOpen" translatesAutoresizingMaskIntoConstraints="NO" id="TTx-qe-fNF">
+                                <rect key="frame" x="19" y="145" width="336" height="433"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="433" id="UIm-Nz-9LV"/>
+                                </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closedFridge" translatesAutoresizingMaskIntoConstraints="NO" id="93l-am-scJ">
+                                <rect key="frame" x="76" y="139" width="223" height="446"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="446" id="7AD-cp-W9a"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NWO-Wv-bK7">
+                                <rect key="frame" x="19" y="139" width="336" height="436"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JFc-Nd-aux"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W5j-tH-RGz" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="8" id="0dB-2a-n4K"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="bottom" secondItem="93l-am-scJ" secondAttribute="bottom" constant="33" id="6Vt-Qn-jOO"/>
+                            <constraint firstItem="Yul-Cs-RCk" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="16" id="AVL-D6-AHR"/>
+                            <constraint firstItem="E48-pw-DL1" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="56" id="Gi5-wd-t6B"/>
+                            <constraint firstItem="F1w-7l-jMV" firstAttribute="top" secondItem="E48-pw-DL1" secondAttribute="bottom" constant="45" id="Gw9-Mm-tiu"/>
+                            <constraint firstItem="E48-pw-DL1" firstAttribute="top" secondItem="JFc-Nd-aux" secondAttribute="top" constant="56" id="I9T-5J-kY6"/>
+                            <constraint firstItem="F1w-7l-jMV" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="48" id="Q6Z-20-hEf"/>
+                            <constraint firstItem="93l-am-scJ" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="76" id="QLI-0k-XXv"/>
+                            <constraint firstItem="Yul-Cs-RCk" firstAttribute="top" secondItem="JFc-Nd-aux" secondAttribute="top" constant="18" id="ZMI-Xa-f7c"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="bottom" secondItem="W5j-tH-RGz" secondAttribute="bottom" constant="34" id="aoe-Si-jfS"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="TTx-qe-fNF" secondAttribute="trailing" constant="20" id="arZ-ZV-RDZ"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="W5j-tH-RGz" secondAttribute="trailing" constant="8" id="hId-fd-RiS"/>
+                            <constraint firstItem="TTx-qe-fNF" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="19" id="hiP-60-MR1"/>
+                            <constraint firstItem="TTx-qe-fNF" firstAttribute="bottom" secondItem="JFc-Nd-aux" secondAttribute="bottom" constant="-40" id="l44-lv-EM4"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="93l-am-scJ" secondAttribute="trailing" constant="76" id="nML-N8-bDc"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="F1w-7l-jMV" secondAttribute="trailing" constant="65" id="tXt-6N-mno"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="bottom" secondItem="F1w-7l-jMV" secondAttribute="bottom" constant="66" id="vRv-1C-usm"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="E48-pw-DL1" secondAttribute="trailing" constant="57" id="xTa-8k-n3p"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="5Wg-LS-adR"/>
                     <connections>
-                        <outlet property="closedFridge" destination="93l-am-scJ" id="zqq-AH-cMm"/>
+                        <outlet property="closedFridge" destination="93l-am-scJ" id="r1k-LR-sZT"/>
+                        <outlet property="emptyFridgeOpen" destination="TTx-qe-fNF" id="SVh-ve-Ibx"/>
+                        <outlet property="fridgeTV" destination="F1w-7l-jMV" id="oTr-3m-OBL"/>
+                        <outlet property="fullFridgeOpen" destination="W5j-tH-RGz" id="Msm-he-K6S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fA-Zo-9Li" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="116" y="148"/>
+            <point key="canvasLocation" x="1055.2" y="147.97601199400302"/>
+        </scene>
+        <!--ManageFridge-->
+        <scene sceneID="8xd-jW-Why">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ManageFridge" id="6gC-4R-PUJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Gm8-CB-9r8"/>
+                    <navigationItem key="navigationItem" id="Vdd-8N-OcD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQ1-34-jkg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="898" y="671"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="gqY-j8-NAV">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WJR-U6-av0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P3l-cc-MDe">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Fk0-kW-FJv" kind="relationship" relationship="viewControllers" id="lw0-KH-IVu"/>
+                        <segue destination="6gC-4R-PUJ" kind="relationship" relationship="viewControllers" id="x0g-ez-yRs"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="icn-LS-68V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="147.97601199400302"/>
         </scene>
     </scenes>
     <resources>
-        <image name="closedFridge" width="556" height="1206"/>
-        <image name="openFridge" width="1266" height="1650"/>
+        <image name="closedFridge" width="442" height="906"/>
+        <image name="emptyFridgeOpen" width="708" height="858"/>
+        <image name="fullFridgeOpen" width="736" height="884"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

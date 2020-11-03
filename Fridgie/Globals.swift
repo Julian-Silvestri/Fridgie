@@ -7,3 +7,6 @@
 
 import Foundation
 
+struct Globals {
+    static var contentsOfFridge = [CurrentInventory]()
+}
