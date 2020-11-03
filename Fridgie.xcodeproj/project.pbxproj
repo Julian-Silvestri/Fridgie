@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		088A7EDC2551C799006FA513 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7EDB2551C799006FA513 /* AppDelegate.swift */; };
+		088A7EDE2551C799006FA513 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7EDD2551C799006FA513 /* SceneDelegate.swift */; };
+		088A7EE02551C799006FA513 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7EDF2551C799006FA513 /* ViewController.swift */; };
+		088A7EE32551C799006FA513 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088A7EE12551C799006FA513 /* Main.storyboard */; };
+		088A7EE62551C799006FA513 /* Fridgie.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 088A7EE42551C799006FA513 /* Fridgie.xcdatamodeld */; };
+		088A7EE82551C79B006FA513 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 088A7EE72551C79B006FA513 /* Assets.xcassets */; };
+		088A7EEB2551C79B006FA513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088A7EE92551C79B006FA513 /* LaunchScreen.storyboard */; };
+		088A7EF62551C79B006FA513 /* FridgieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7EF52551C79B006FA513 /* FridgieTests.swift */; };
+		088A7F012551C79B006FA513 /* FridgieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7F002551C79B006FA513 /* FridgieUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		088A7EF22551C79B006FA513 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 088A7ED02551C799006FA513 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 088A7ED72551C799006FA513;
+			remoteInfo = Fridgie;
+		};
+		088A7EFD2551C79B006FA513 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 088A7ED02551C799006FA513 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 088A7ED72551C799006FA513;
+			remoteInfo = Fridgie;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		088A7ED82551C799006FA513 /* Fridgie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fridgie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		088A7EDB2551C799006FA513 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		088A7EDD2551C799006FA513 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		088A7EDF2551C799006FA513 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		088A7EE22551C799006FA513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		088A7EE52551C799006FA513 /* Fridgie.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fridgie.xcdatamodel; sourceTree = "<group>"; };
+		088A7EE72551C79B006FA513 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		088A7EEA2551C79B006FA513 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		088A7EEC2551C79B006FA513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		088A7EF12551C79B006FA513 /* FridgieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FridgieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		088A7EF52551C79B006FA513 /* FridgieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgieTests.swift; sourceTree = "<group>"; };
+		088A7EF72551C79B006FA513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		088A7EFC2551C79B006FA513 /* FridgieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FridgieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		088A7F002551C79B006FA513 /* FridgieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgieUITests.swift; sourceTree = "<group>"; };
+		088A7F022551C79B006FA513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		088A7ED52551C799006FA513 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		088A7EEE2551C79B006FA513 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		088A7EF92551C79B006FA513 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		088A7ECF2551C799006FA513 = {
+			isa = PBXGroup;
+			children = (
+				088A7EDA2551C799006FA513 /* Fridgie */,
+				088A7EF42551C79B006FA513 /* FridgieTests */,
+				088A7EFF2551C79B006FA513 /* FridgieUITests */,
+				088A7ED92551C799006FA513 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		088A7ED92551C799006FA513 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				088A7ED82551C799006FA513 /* Fridgie.app */,
+				088A7EF12551C79B006FA513 /* FridgieTests.xctest */,
+				088A7EFC2551C79B006FA513 /* FridgieUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		088A7EDA2551C799006FA513 /* Fridgie */ = {
+			isa = PBXGroup;
+			children = (
+				088A7EDB2551C799006FA513 /* AppDelegate.swift */,
+				088A7EDD2551C799006FA513 /* SceneDelegate.swift */,
+				088A7EDF2551C799006FA513 /* ViewController.swift */,
+				088A7EE12551C799006FA513 /* Main.storyboard */,
+				088A7EE72551C79B006FA513 /* Assets.xcassets */,
+				088A7EE92551C79B006FA513 /* LaunchScreen.storyboard */,
+				088A7EEC2551C79B006FA513 /* Info.plist */,
+				088A7EE42551C799006FA513 /* Fridgie.xcdatamodeld */,
+			);
+			path = Fridgie;
+			sourceTree = "<group>";
+		};
+		088A7EF42551C79B006FA513 /* FridgieTests */ = {
+			isa = PBXGroup;
+			children = (
+				088A7EF52551C79B006FA513 /* FridgieTests.swift */,
+				088A7EF72551C79B006FA513 /* Info.plist */,
+			);
+			path = FridgieTests;
+			sourceTree = "<group>";
+		};
+		088A7EFF2551C79B006FA513 /* FridgieUITests */ = {
+			isa = PBXGroup;
+			children = (
+				088A7F002551C79B006FA513 /* FridgieUITests.swift */,
+				088A7F022551C79B006FA513 /* Info.plist */,
+			);
+			path = FridgieUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		088A7ED72551C799006FA513 /* Fridgie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 088A7F052551C79B006FA513 /* Build configuration list for PBXNativeTarget "Fridgie" */;
+			buildPhases = (
+				088A7ED42551C799006FA513 /* Sources */,
+				088A7ED52551C799006FA513 /* Frameworks */,
+				088A7ED62551C799006FA513 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fridgie;
+			productName = Fridgie;
+			productReference = 088A7ED82551C799006FA513 /* Fridgie.app */;
+			productType = "com.apple.product-type.application";
+		};
+		088A7EF02551C79B006FA513 /* FridgieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 088A7F082551C79B006FA513 /* Build configuration list for PBXNativeTarget "FridgieTests" */;
+			buildPhases = (
+				088A7EED2551C79B006FA513 /* Sources */,
+				088A7EEE2551C79B006FA513 /* Frameworks */,
+				088A7EEF2551C79B006FA513 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				088A7EF32551C79B006FA513 /* PBXTargetDependency */,
+			);
+			name = FridgieTests;
+			productName = FridgieTests;
+			productReference = 088A7EF12551C79B006FA513 /* FridgieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		088A7EFB2551C79B006FA513 /* FridgieUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 088A7F0B2551C79B006FA513 /* Build configuration list for PBXNativeTarget "FridgieUITests" */;
+			buildPhases = (
+				088A7EF82551C79B006FA513 /* Sources */,
+				088A7EF92551C79B006FA513 /* Frameworks */,
+				088A7EFA2551C79B006FA513 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				088A7EFE2551C79B006FA513 /* PBXTargetDependency */,
+			);
+			name = FridgieUITests;
+			productName = FridgieUITests;
+			productReference = 088A7EFC2551C79B006FA513 /* FridgieUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		088A7ED02551C799006FA513 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					088A7ED72551C799006FA513 = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					088A7EF02551C79B006FA513 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 088A7ED72551C799006FA513;
+					};
+					088A7EFB2551C79B006FA513 = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 088A7ED72551C799006FA513;
+					};
+				};
+			};
+			buildConfigurationList = 088A7ED32551C799006FA513 /* Build configuration list for PBXProject "Fridgie" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 088A7ECF2551C799006FA513;
+			productRefGroup = 088A7ED92551C799006FA513 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				088A7ED72551C799006FA513 /* Fridgie */,
+				088A7EF02551C79B006FA513 /* FridgieTests */,
+				088A7EFB2551C79B006FA513 /* FridgieUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		088A7ED62551C799006FA513 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088A7EEB2551C79B006FA513 /* LaunchScreen.storyboard in Resources */,
+				088A7EE82551C79B006FA513 /* Assets.xcassets in Resources */,
+				088A7EE32551C799006FA513 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		088A7EEF2551C79B006FA513 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		088A7EFA2551C79B006FA513 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		088A7ED42551C799006FA513 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088A7EE02551C799006FA513 /* ViewController.swift in Sources */,
+				088A7EDC2551C799006FA513 /* AppDelegate.swift in Sources */,
+				088A7EE62551C799006FA513 /* Fridgie.xcdatamodeld in Sources */,
+				088A7EDE2551C799006FA513 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		088A7EED2551C79B006FA513 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088A7EF62551C79B006FA513 /* FridgieTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		088A7EF82551C79B006FA513 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				088A7F012551C79B006FA513 /* FridgieUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		088A7EF32551C79B006FA513 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 088A7ED72551C799006FA513 /* Fridgie */;
+			targetProxy = 088A7EF22551C79B006FA513 /* PBXContainerItemProxy */;
+		};
+		088A7EFE2551C79B006FA513 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 088A7ED72551C799006FA513 /* Fridgie */;
+			targetProxy = 088A7EFD2551C79B006FA513 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		088A7EE12551C799006FA513 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				088A7EE22551C799006FA513 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		088A7EE92551C79B006FA513 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				088A7EEA2551C79B006FA513 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		088A7F032551C79B006FA513 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		088A7F042551C79B006FA513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		088A7F062551C79B006FA513 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2B79Z9A8Q;
+				INFOPLIST_FILE = Fridgie/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvestri.Fridgie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		088A7F072551C79B006FA513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2B79Z9A8Q;
+				INFOPLIST_FILE = Fridgie/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvestri.Fridgie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		088A7F092551C79B006FA513 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2B79Z9A8Q;
+				INFOPLIST_FILE = FridgieTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvestri.FridgieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fridgie.app/Fridgie";
+			};
+			name = Debug;
+		};
+		088A7F0A2551C79B006FA513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2B79Z9A8Q;
+				INFOPLIST_FILE = FridgieTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvestri.FridgieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fridgie.app/Fridgie";
+			};
+			name = Release;
+		};
+		088A7F0C2551C79B006FA513 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2B79Z9A8Q;
+				INFOPLIST_FILE = FridgieUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvestri.FridgieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fridgie;
+			};
+			name = Debug;
+		};
+		088A7F0D2551C79B006FA513 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2B79Z9A8Q;
+				INFOPLIST_FILE = FridgieUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = silvestri.FridgieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Fridgie;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		088A7ED32551C799006FA513 /* Build configuration list for PBXProject "Fridgie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				088A7F032551C79B006FA513 /* Debug */,
+				088A7F042551C79B006FA513 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		088A7F052551C79B006FA513 /* Build configuration list for PBXNativeTarget "Fridgie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				088A7F062551C79B006FA513 /* Debug */,
+				088A7F072551C79B006FA513 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		088A7F082551C79B006FA513 /* Build configuration list for PBXNativeTarget "FridgieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				088A7F092551C79B006FA513 /* Debug */,
+				088A7F0A2551C79B006FA513 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		088A7F0B2551C79B006FA513 /* Build configuration list for PBXNativeTarget "FridgieUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				088A7F0C2551C79B006FA513 /* Debug */,
+				088A7F0D2551C79B006FA513 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		088A7EE42551C799006FA513 /* Fridgie.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				088A7EE52551C799006FA513 /* Fridgie.xcdatamodel */,
+			);
+			currentVersion = 088A7EE52551C799006FA513 /* Fridgie.xcdatamodel */;
+			path = Fridgie.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 088A7ED02551C799006FA513 /* Project object */;
+}
