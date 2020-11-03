@@ -16,6 +16,7 @@
 		088A7EEB2551C79B006FA513 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088A7EE92551C79B006FA513 /* LaunchScreen.storyboard */; };
 		088A7EF62551C79B006FA513 /* FridgieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7EF52551C79B006FA513 /* FridgieTests.swift */; };
 		088A7F012551C79B006FA513 /* FridgieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7F002551C79B006FA513 /* FridgieUITests.swift */; };
+		088A7F162551CDD9006FA513 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7F152551CDD9006FA513 /* Globals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		088A7EFC2551C79B006FA513 /* FridgieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FridgieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		088A7F002551C79B006FA513 /* FridgieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FridgieUITests.swift; sourceTree = "<group>"; };
 		088A7F022551C79B006FA513 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		088A7F152551CDD9006FA513 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +103,14 @@
 		088A7EDA2551C799006FA513 /* Fridgie */ = {
 			isa = PBXGroup;
 			children = (
+				088A7F112551C7B3006FA513 /* Storyboards */,
 				088A7EDB2551C799006FA513 /* AppDelegate.swift */,
 				088A7EDD2551C799006FA513 /* SceneDelegate.swift */,
 				088A7EDF2551C799006FA513 /* ViewController.swift */,
-				088A7EE12551C799006FA513 /* Main.storyboard */,
 				088A7EE72551C79B006FA513 /* Assets.xcassets */,
-				088A7EE92551C79B006FA513 /* LaunchScreen.storyboard */,
 				088A7EEC2551C79B006FA513 /* Info.plist */,
 				088A7EE42551C799006FA513 /* Fridgie.xcdatamodeld */,
+				088A7F152551CDD9006FA513 /* Globals.swift */,
 			);
 			path = Fridgie;
 			sourceTree = "<group>";
@@ -129,6 +131,15 @@
 				088A7F022551C79B006FA513 /* Info.plist */,
 			);
 			path = FridgieUITests;
+			sourceTree = "<group>";
+		};
+		088A7F112551C7B3006FA513 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				088A7EE92551C79B006FA513 /* LaunchScreen.storyboard */,
+				088A7EE12551C799006FA513 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +275,7 @@
 				088A7EE02551C799006FA513 /* ViewController.swift in Sources */,
 				088A7EDC2551C799006FA513 /* AppDelegate.swift in Sources */,
 				088A7EE62551C799006FA513 /* Fridgie.xcdatamodeld in Sources */,
+				088A7F162551CDD9006FA513 /* Globals.swift in Sources */,
 				088A7EDE2551C799006FA513 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
