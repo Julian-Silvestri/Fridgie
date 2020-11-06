@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class FridgeCell: UITableViewCell{
     @IBOutlet weak var name: UILabel!
@@ -13,25 +14,45 @@ class FridgeCell: UITableViewCell{
     @IBOutlet weak var group: UILabel!
 }
 
-class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate {
 
+
+    @IBOutlet weak var searchBarView: UIView!
     @IBOutlet weak var fullFridgeOpen: UIImageView!
     @IBOutlet weak var emptyFridgeOpen: UIImageView!
     @IBOutlet weak var closedFridge: UIImageView!
     @IBOutlet weak var fridgeTV: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    let searchController = UISearchController(searchResultsController: nil)
+    var resultsSearchController = UISearchController()
+    var isFridgeOpen:Bool?
     var fakeContents = ["Eggs","Bacon","Cheese","Milk","Bread","Olives","Chicken","Lettuce","Tomatoes","Cucumber","Zuchini","Peppers"]
     var groups = ["Protien","Protien","Dairy","Dairy","Grain","Fruit","Protien","Vegtable","Vegtable","Vegtable","Vegtable","Vegtable"]
     
     var tapGesture = UITapGestureRecognizer()
     var currentContents = [String]()
+    var filteredData = [String]()
+    var refreshController = UIRefreshControl()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchController.searchBar.delegate = self
+        self.resultsSearchController.searchBar.delegate = self
+        self.searchController.obscuresBackgroundDuringPresentation = false
+        self.searchController.searchResultsUpdater = self
+        self.searchController.becomeFirstResponder()
+        self.searchBarView.addSubview(searchController.searchBar)
+        self.searchController.searchBar.clipsToBounds = true
+        self.searchBarView.bringSubviewToFront(searchController.searchBar)
+//        self.navigationItem.searchController = searchController
+        
+        
+        
+        self.isFridgeOpen = false
         self.closedFridge.alpha = 1
-        self.currentContents = fakeContents
+        
         self.fridgeTV.delegate = self
         self.fridgeTV.dataSource = self
         self.view.addGestureRecognizer(tapGesture)
@@ -43,6 +64,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.tabBarController?.tabBar.barTintColor = UIColor.white
             self.fridgeTV.backgroundColor = UIColor.white
         }
+        
+        self.currentContents = fakeContents
+        self.filteredData = self.currentContents
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,21 +74,29 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewWillAppear(animated)
         self.fridgeTV.alpha = 0
 //        self.fullFridgeOpen.alpha = 0
-//        self.emptyFridgeOpen.alpha = 0
+        self.emptyFridgeOpen.alpha = 0
         self.closedFridge.alpha = 1
         
         print(currentContents)
     }
     
+
+    
     @objc func tapOccured(){
         print("TAP OCCURED")
-        if self.fridgeTV.alpha == 0 {
-            print("opening Fridge")
+        
+        if self.isFridgeOpen == false {
             self.openFridge()
         } else {
-            print("Closing Fridge")
             self.closeFridge()
         }
+
+    }
+    
+    @objc func handleTopRefresh(sender: UIRefreshControl){
+        //load data again 1. remove data, 2. add again
+        sender.endRefreshing()
+
     }
 
     @IBAction func dontTouch(_ sender: Any) {
@@ -75,59 +107,136 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.currentContents.count
+        if isFiltering() {
+            print("COUNT of fileted data = \(self.filteredData.count)")
+            return self.filteredData.count
+        } else {
+            return self.currentContents.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = fridgeTV.dequeueReusableCell(withIdentifier: "fridgeCell") as! FridgeCell
         
-//        for data in currentContents[indexPath.row]{
-//            cell.name.text = data
-//        }
-//        for data in groups[indexPath.row] {
-//            cell.group.text = data
-//        }
-//
+        var dataToUse = [String]()
+        
+        if isFiltering(){
+            dataToUse = self.filteredData
+        } else {
+            dataToUse = self.currentContents
+        }
+        
         cell.group.text = groups[indexPath.row]
-        cell.name.text = currentContents[indexPath.row]
+        cell.name.text = dataToUse[indexPath.row]
 
         return cell
     }
     
     func closeFridge(){
-        UIView.animate(withDuration: 0.5, animations: {
-            self.fridgeTV.alpha = 0
-        }, completion: { _ in
-//            self.emptyFridgeOpen.alpha = 0
-//            self.fullFridgeOpen.alpha = 0
-            self.closedFridge.alpha = 1
-            return
-        })
+        self.isFridgeOpen = false
+        if self.currentContents.count >= 1 {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.fridgeTV.alpha = 0
+            }, completion: { _ in
+                self.closedFridge.alpha = 1
+                return
+            })
+        } else {
+            UIView.animate(withDuration: 0.5, animations: {
+                self.emptyFridgeOpen.alpha = 0
+            }, completion: { _ in
+                self.closedFridge.alpha = 1
+                return
+            })
+        }
+        
+
     }
     
     func openFridge(){
+        self.fridgeTV.isHidden = false
+        self.isFridgeOpen = true
         if self.closedFridge.alpha == 1 {
             if self.currentContents.count >= 1 {
+                print("here")
+                self.fridgeTV.isHidden = false
                 UIView.animate(withDuration: 0.5, animations: {
                     self.closedFridge.alpha = 1
-//                    self.emptyFridgeOpen.alpha = 0
-//                    self.fullFridgeOpen.alpha = 1
                 },completion: { _ in
                     self.fridgeTV.alpha = 1
                     return
                 })
             } else {
                 UIView.animate(withDuration: 0.5, animations: {
-                    self.closedFridge.alpha = 0
-//                    self.fullFridgeOpen.alpha = 0
                     self.emptyFridgeOpen.alpha = 1
+                    self.fridgeTV.isHidden = true
                 },completion: { _ in
-                    self.fridgeTV.alpha = 1
                     return
                 })
             }
         }
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("filtering")
+        self.filteredData = self.currentContents
+        self.currentContents = self.filteredData.filter({
+            return $0.lowercased().contains(searchText.lowercased())
+        })
+        self.fridgeTV.reloadData()
+    }
+    
+    func isFiltering() ->Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+//        var filteredData = self.currentContents
+        guard let text = searchController.searchBar.text else { return }
+        
+        let updateArr = self.currentContents.filter({
+            return $0.lowercased().range(of: text) != nil
+        })
+        
+//        filteredData = self.currentContents.filter({
+//            print("inside filter")
+//            print("TEXT \(text)")
+//            return $0.lowercased().contains(text.lowercased())
+//
+//        })
+//
+//        filteredData = self.currentContents.filter({$0.lowercased(), in
+//            print("inside filter")
+//            if searchBarIsEmpty() {
+//                print("search bar is emtpy")
+//                return false
+//            } else {
+//                print("found items")
+//                return $0.lowercased().contains(searchController.searchBar.text!.lowercased())
+//            }
+//        })
+        self.filteredData = updateArr
+        self.fridgeTV.reloadData()
+    }
+    
+//    func filterContentForSearchText(_ searchText: String) {
+//        var filteredData = self.currentContents
+//        filteredData = self.currentContents.filter({(name: String) ->Bool in
+//            if searchBarIsEmpty() {
+//                return false
+//            } else {
+//                return name.lowercased().contains(searchText.lowercased())
+//            }
+//        })
+//        self.currentContents = filteredData
+//        self.fridgeTV.reloadData()
+//    }
+    
+    
 
 }
 
