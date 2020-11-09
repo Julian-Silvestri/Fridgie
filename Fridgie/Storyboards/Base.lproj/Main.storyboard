@@ -36,7 +36,7 @@
                                 </constraints>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="6bW-BQ-xN5">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="61"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>

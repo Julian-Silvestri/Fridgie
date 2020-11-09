@@ -23,7 +23,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     @IBOutlet weak var closedFridge: UIImageView!
     @IBOutlet weak var fridgeTV: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
-    
+
     let searchController = UISearchController(searchResultsController: nil)
     var resultsSearchController = UISearchController()
     var isFridgeOpen:Bool?
@@ -40,12 +40,28 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         super.viewDidLoad()
         self.searchController.searchBar.delegate = self
         self.resultsSearchController.searchBar.delegate = self
+        self.searchController.hidesNavigationBarDuringPresentation = true
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchResultsUpdater = self
-        self.searchController.becomeFirstResponder()
         self.searchBarView.addSubview(searchController.searchBar)
+        self.searchBarView.clipsToBounds = true
         self.searchController.searchBar.clipsToBounds = true
+        
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.frame = CGRect(x:0,y:0, width: self.searchBarView.frame.size.width,height: self.searchController.searchBar.frame.size.height)
         self.searchBarView.bringSubviewToFront(searchController.searchBar)
+        self.definesPresentationContext = true
+        
+        self.searchController.becomeFirstResponder()
+
+        
+
+//        for subviews in self.searchBarView.subviews {
+//            subviews.clipsToBounds = true
+//        }
+//        self.searchBarView.subviews.cli
+        
+//        self.searchController.searchBar.addConstraint(NSLayoutConstraint(item: self.searchBarView!, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: self.searchBarView.frame.size.width))
 //        self.navigationItem.searchController = searchController
         
         
@@ -73,13 +89,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         
         super.viewWillAppear(animated)
         self.fridgeTV.alpha = 0
-//        self.fullFridgeOpen.alpha = 0
         self.emptyFridgeOpen.alpha = 0
         self.closedFridge.alpha = 1
         
         print(currentContents)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        var searchBarFrame = searchController.searchBar.frame
+        //self.searchController.searchBar.frame.size.width = self.searchBarView.frame.size.width
+        searchController.searchBar.invalidateIntrinsicContentSize()
+    }
 
     
     @objc func tapOccured(){
@@ -100,10 +121,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     }
 
     @IBAction func dontTouch(_ sender: Any) {
-        if self.currentContents.count >= 1 {
-            self.currentContents.removeAll()
-        }
-        
+//        if self.currentContents.count >= 1 {
+//            self.currentContents.removeAll()
+//        }
+//
+        postFridgeItem(itemName: "newFridge", quantity: 10, barcodeValue: "12412421", category: "vegFruit", completionHandler: {success, result in
+            if success == true {
+                print("something happened")
+            } else {
+                print("something bad has happened")
+            }
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -177,15 +205,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("filtering")
-        self.filteredData = self.currentContents
-        self.currentContents = self.filteredData.filter({
-            return $0.lowercased().contains(searchText.lowercased())
-        })
-        self.fridgeTV.reloadData()
-    }
-    
     func isFiltering() ->Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
@@ -195,48 +214,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-//        var filteredData = self.currentContents
         guard let text = searchController.searchBar.text else { return }
-        
+        print("\(text)")
         let updateArr = self.currentContents.filter({
-            return $0.lowercased().range(of: text) != nil
+            
+            return $0.lowercased().contains(text.lowercased())
         })
-        
-//        filteredData = self.currentContents.filter({
-//            print("inside filter")
-//            print("TEXT \(text)")
-//            return $0.lowercased().contains(text.lowercased())
-//
-//        })
-//
-//        filteredData = self.currentContents.filter({$0.lowercased(), in
-//            print("inside filter")
-//            if searchBarIsEmpty() {
-//                print("search bar is emtpy")
-//                return false
-//            } else {
-//                print("found items")
-//                return $0.lowercased().contains(searchController.searchBar.text!.lowercased())
-//            }
-//        })
+
         self.filteredData = updateArr
         self.fridgeTV.reloadData()
     }
-    
-//    func filterContentForSearchText(_ searchText: String) {
-//        var filteredData = self.currentContents
-//        filteredData = self.currentContents.filter({(name: String) ->Bool in
-//            if searchBarIsEmpty() {
-//                return false
-//            } else {
-//                return name.lowercased().contains(searchText.lowercased())
-//            }
-//        })
-//        self.currentContents = filteredData
-//        self.fridgeTV.reloadData()
-//    }
-    
-    
 
 }
 
