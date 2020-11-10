@@ -9,15 +9,16 @@ import Foundation
 
 
 class CurrentInventory: Codable {
-    let name: String
-    let group: String
     let id: Int
-    
-    init(name: String, group: String, id: Int){
-        self.name = name
-        self.group = group
+    let item_name: String
+    let quantity: Int
+    let barcode_value, category: String
+
+    init(id: Int, item_name: String, quantity: Int, barcode_value: String, category: String) {
         self.id = id
-        
+        self.item_name = item_name
+        self.quantity = quantity
+        self.barcode_value = barcode_value
+        self.category = category
     }
-    
 }

@@ -31,8 +31,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     var groups = ["Protien","Protien","Dairy","Dairy","Grain","Fruit","Protien","Vegtable","Vegtable","Vegtable","Vegtable","Vegtable"]
     
     var tapGesture = UITapGestureRecognizer()
-    var currentContents = [String]()
-    var filteredData = [String]()
     var refreshController = UIRefreshControl()
     
     
@@ -54,18 +52,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         
         self.searchController.becomeFirstResponder()
 
-        
-
-//        for subviews in self.searchBarView.subviews {
-//            subviews.clipsToBounds = true
-//        }
-//        self.searchBarView.subviews.cli
-        
-//        self.searchController.searchBar.addConstraint(NSLayoutConstraint(item: self.searchBarView!, attribute: .width, relatedBy: .equal, toItem: self.view, attribute: .width, multiplier: 1, constant: self.searchBarView.frame.size.width))
-//        self.navigationItem.searchController = searchController
-        
-        
-        
         self.isFridgeOpen = false
         self.closedFridge.alpha = 1
         
@@ -80,11 +66,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
             self.tabBarController?.tabBar.barTintColor = UIColor.white
             self.fridgeTV.backgroundColor = UIColor.white
         }
-        
-        self.currentContents = fakeContents
-        self.filteredData = self.currentContents
+
+        grabFridgeItems(completionHandler: { success, response in
+            if success == true {
+                print("good to go")
+            } else {
+                print("not good to go")
+            }
+        })
     }
     
+    //MARK: ViewWill Appear
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
@@ -92,17 +84,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         self.emptyFridgeOpen.alpha = 0
         self.closedFridge.alpha = 1
         
-        print(currentContents)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        var searchBarFrame = searchController.searchBar.frame
-        //self.searchController.searchBar.frame.size.width = self.searchBarView.frame.size.width
-        searchController.searchBar.invalidateIntrinsicContentSize()
+//        print(currentContents)
     }
 
-    
+    //MARK: Tap Occured
     @objc func tapOccured(){
         print("TAP OCCURED")
         
@@ -114,6 +99,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
 
     }
     
+    //MARK: Handle Top Refresh
     @objc func handleTopRefresh(sender: UIRefreshControl){
         //load data again 1. remove data, 2. add again
         sender.endRefreshing()
@@ -125,44 +111,53 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
 //            self.currentContents.removeAll()
 //        }
 //
-        postFridgeItem(itemName: "newFridge", quantity: 10, barcodeValue: "12412421", category: "vegFruit", completionHandler: {success, result in
-            if success == true {
-                print("something happened")
-            } else {
-                print("something bad has happened")
-            }
-        })
+//        postFridgeItem(itemName: "newFridge", quantity: 10, barcodeValue: "12412421", category: "vegFruit", completionHandler: {success, result in
+//            if success == true {
+//                print("something happened")
+//            } else {
+//                print("something bad has happened")
+//            }
+//        })
+//        grabFridgeItems(completionHandler: { success, response in
+//            if success == true {
+//                print("good to go")
+//            } else {
+//                print("not good to go")
+//            }
+//        })
     }
     
+    //MARK: Number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isFiltering() {
-            print("COUNT of fileted data = \(self.filteredData.count)")
-            return self.filteredData.count
+
+            return Globals.filteredCurrentFridgeInventory.count
         } else {
-            return self.currentContents.count
+            return Globals.currentFridgeInventory.count
         }
     }
     
+    //MARK: Cell For ROw
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = fridgeTV.dequeueReusableCell(withIdentifier: "fridgeCell") as! FridgeCell
         
-        var dataToUse = [String]()
+        var dataToUse: CurrentInventory
         
         if isFiltering(){
-            dataToUse = self.filteredData
+            dataToUse = Globals.filteredCurrentFridgeInventory[indexPath.row]
         } else {
-            dataToUse = self.currentContents
+            dataToUse = Globals.currentFridgeInventory[indexPath.row]
         }
-        
-        cell.group.text = groups[indexPath.row]
-        cell.name.text = dataToUse[indexPath.row]
+
+        cell.name.text = dataToUse.item_name
 
         return cell
     }
     
+    //MARK: Close Fridge
     func closeFridge(){
         self.isFridgeOpen = false
-        if self.currentContents.count >= 1 {
+        if Globals.currentFridgeInventory.count >= 1 {
             UIView.animate(withDuration: 0.5, animations: {
                 self.fridgeTV.alpha = 0
             }, completion: { _ in
@@ -181,11 +176,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
 
     }
     
+    //MARK: Open Fridge
     func openFridge(){
         self.fridgeTV.isHidden = false
         self.isFridgeOpen = true
         if self.closedFridge.alpha == 1 {
-            if self.currentContents.count >= 1 {
+            if Globals.currentFridgeInventory.count >= 1 {
                 print("here")
                 self.fridgeTV.isHidden = false
                 UIView.animate(withDuration: 0.5, animations: {
@@ -205,23 +201,26 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         }
     }
     
+    //MARK: IS Filtering
     func isFiltering() ->Bool {
         return searchController.isActive && !searchBarIsEmpty()
     }
     
+    //MARK: Search Bar is EMpty
     func searchBarIsEmpty() -> Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
+    //MARK: Update SearchResults
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         print("\(text)")
-        let updateArr = self.currentContents.filter({
+        let updateArr = Globals.currentFridgeInventory.filter({
             
-            return $0.lowercased().contains(text.lowercased())
+            return $0.item_name.lowercased().contains(text.lowercased())
         })
 
-        self.filteredData = updateArr
+        Globals.filteredCurrentFridgeInventory = updateArr
         self.fridgeTV.reloadData()
     }
 

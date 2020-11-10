@@ -8,5 +8,6 @@
 import Foundation
 
 struct Globals {
-    static var contentsOfFridge = [CurrentInventory]()
+    static var currentFridgeInventory = [CurrentInventory]()
+    static var filteredCurrentFridgeInventory = [CurrentInventory]()
 }
