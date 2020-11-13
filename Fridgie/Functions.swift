@@ -212,6 +212,7 @@ func grabFridgeItems(completionHandler: @escaping(Bool?, String?) -> Void){
             }
 
             dump(Globals.currentFridgeInventory)
+            completionHandler(true, "success")
 
         }
     }
