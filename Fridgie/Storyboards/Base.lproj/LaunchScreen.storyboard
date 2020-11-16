@@ -17,35 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="closedFridge" translatesAutoresizingMaskIntoConstraints="NO" id="oz6-17-c8R">
-                                <rect key="frame" x="76" y="139" width="223" height="456"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="closedFridge" translatesAutoresizingMaskIntoConstraints="NO" id="iyT-Hm-6ha">
-                                <rect key="frame" x="0.0" y="69" width="375" height="509"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ogFridge" translatesAutoresizingMaskIntoConstraints="NO" id="iyT-Hm-6ha">
+                                <rect key="frame" x="9" y="95" width="365" height="523"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="509" id="ZtR-6R-Ser"/>
+                                    <constraint firstAttribute="height" constant="523" id="ZtR-6R-Ser"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fridgie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8z-Yu-aNG">
-                                <rect key="frame" x="56" y="12" width="262" height="81"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="3IF-ml-rcW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="53"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Y8z-Yu-aNG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="ACe-nT-oU4"/>
-                            <constraint firstItem="iyT-Hm-6ha" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VBB-4T-SEm"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y8z-Yu-aNG" secondAttribute="trailing" constant="57" id="We5-1u-98d"/>
-                            <constraint firstItem="iyT-Hm-6ha" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="dL3-Hb-cUJ"/>
-                            <constraint firstItem="iyT-Hm-6ha" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="69" id="hYb-c3-YvR"/>
-                            <constraint firstItem="Y8z-Yu-aNG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="sQR-TN-3hK"/>
+                            <constraint firstItem="iyT-Hm-6ha" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="VBB-4T-SEm"/>
+                            <constraint firstItem="iyT-Hm-6ha" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-1" id="dL3-Hb-cUJ"/>
+                            <constraint firstItem="iyT-Hm-6ha" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="hYb-c3-YvR"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -55,7 +39,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="closedFridge" width="442" height="906"/>
+        <image name="ogFridge" width="800" height="972"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

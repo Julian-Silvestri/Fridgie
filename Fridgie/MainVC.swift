@@ -25,12 +25,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     @IBOutlet weak var fridgeTV: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
 
-    let searchController = UISearchController(searchResultsController: nil)
-    var resultsSearchController = UISearchController()
     var isFridgeOpen:Bool?
-    var fakeContents = ["Eggs","Bacon","Cheese","Milk","Bread","Olives","Chicken","Lettuce","Tomatoes","Cucumber","Zuchini","Peppers"]
-    var groups = ["Protien","Protien","Dairy","Dairy","Grain","Fruit","Protien","Vegtable","Vegtable","Vegtable","Vegtable","Vegtable"]
-    
     var tapGesture = UITapGestureRecognizer()
     var refreshController = UIRefreshControl()
     var searchActive: Bool?

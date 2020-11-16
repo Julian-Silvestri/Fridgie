@@ -9,7 +9,7 @@ import Foundation
 
 //MARK: Post Item In Fridge
 func postFridgeItem(itemName: String, quantity: Int, barcodeValue: String, category: String, completionHandler: @escaping(Bool?, String?) -> Void) {
-    guard let url = URL(string: "http://192.168.0.24/post_fridge_item.php") else { return }
+    guard let url = URL(string: "http://192.168.0.23/post_fridge_item.php") else { return }
     
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -63,7 +63,7 @@ func postFridgeItem(itemName: String, quantity: Int, barcodeValue: String, categ
 
 //MARK: Remove Item From Fridge
 func removeItemFromFridge(id: Int, completionHandler: @escaping(Bool?, String?) -> Void) {
-    guard let url = URL(string: "http://192.168.0.24/remove_item_from_fridge.php") else { return }
+    guard let url = URL(string: "http://192.168.0.23/remove_item_from_fridge.php") else { return }
     
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -114,7 +114,7 @@ func removeItemFromFridge(id: Int, completionHandler: @escaping(Bool?, String?) 
 
 //MARK: Update Fridge Item
 func updateFridgeItem(id: Int, itemName: String, quantity: String, barcodeValue: String, category: String, completionHandler: @escaping(Bool?, String?) -> Void) {
-    guard let url = URL(string: "http://192.168.0.24/update_item_in_fridge.php") else { return }
+    guard let url = URL(string: "http://192.168.0.23/update_item_in_fridge.php") else { return }
     
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
@@ -166,7 +166,7 @@ func updateFridgeItem(id: Int, itemName: String, quantity: String, barcodeValue:
 //MARK: Grab Inventory
 
 func grabFridgeItems(completionHandler: @escaping(Bool?, String?) -> Void){
-    guard let url = URL(string: "http://192.168.0.24/grab_all_fridge_items.php") else { return }
+    guard let url = URL(string: "http://192.168.0.23/grab_all_fridge_items.php") else { return }
     
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
