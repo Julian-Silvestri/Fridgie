@@ -20,6 +20,10 @@
 		088A7F1B2551CFFC006FA513 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7F1A2551CFFC006FA513 /* Classes.swift */; };
 		088A7F232551D411006FA513 /* ManageFridge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088A7F222551D411006FA513 /* ManageFridge.storyboard */; };
 		088A7F282551D43F006FA513 /* ManageFridgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088A7F272551D43F006FA513 /* ManageFridgeVC.swift */; };
+		08D6E1F42563105200A75B81 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6E1F32563105200A75B81 /* CustomLoader.swift */; };
+		08D6E1F9256310DC00A75B81 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6E1F8256310DC00A75B81 /* Gif.swift */; };
+		08D6E2012563269000A75B81 /* AddFridgeItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6E2002563269000A75B81 /* AddFridgeItemVC.swift */; };
+		08D6E20C256457C900A75B81 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6E20B256457C900A75B81 /* LaunchScreenVC.swift */; };
 		08F543A22559D5F20040D71F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F543A12559D5F20040D71F /* Functions.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +64,10 @@
 		088A7F1A2551CFFC006FA513 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		088A7F222551D411006FA513 /* ManageFridge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ManageFridge.storyboard; sourceTree = "<group>"; };
 		088A7F272551D43F006FA513 /* ManageFridgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageFridgeVC.swift; sourceTree = "<group>"; };
+		08D6E1F32563105200A75B81 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
+		08D6E1F8256310DC00A75B81 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		08D6E2002563269000A75B81 /* AddFridgeItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFridgeItemVC.swift; sourceTree = "<group>"; };
+		08D6E20B256457C900A75B81 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		08F543A12559D5F20040D71F /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,10 +120,14 @@
 			isa = PBXGroup;
 			children = (
 				088A7F112551C7B3006FA513 /* Storyboards */,
+				08D6E2002563269000A75B81 /* AddFridgeItemVC.swift */,
 				088A7EDB2551C799006FA513 /* AppDelegate.swift */,
 				088A7F1A2551CFFC006FA513 /* Classes.swift */,
+				08D6E1F32563105200A75B81 /* CustomLoader.swift */,
 				08F543A12559D5F20040D71F /* Functions.swift */,
 				088A7F152551CDD9006FA513 /* Globals.swift */,
+				08D6E1F8256310DC00A75B81 /* Gif.swift */,
+				08D6E20B256457C900A75B81 /* LaunchScreenVC.swift */,
 				088A7EDF2551C799006FA513 /* MainVC.swift */,
 				088A7F272551D43F006FA513 /* ManageFridgeVC.swift */,
 				088A7EDD2551C799006FA513 /* SceneDelegate.swift */,
@@ -287,12 +299,16 @@
 			files = (
 				088A7EE02551C799006FA513 /* MainVC.swift in Sources */,
 				088A7EDC2551C799006FA513 /* AppDelegate.swift in Sources */,
+				08D6E1F42563105200A75B81 /* CustomLoader.swift in Sources */,
 				088A7F1B2551CFFC006FA513 /* Classes.swift in Sources */,
+				08D6E1F9256310DC00A75B81 /* Gif.swift in Sources */,
 				08F543A22559D5F20040D71F /* Functions.swift in Sources */,
 				088A7EE62551C799006FA513 /* Fridgie.xcdatamodeld in Sources */,
 				088A7F162551CDD9006FA513 /* Globals.swift in Sources */,
 				088A7EDE2551C799006FA513 /* SceneDelegate.swift in Sources */,
 				088A7F282551D43F006FA513 /* ManageFridgeVC.swift in Sources */,
+				08D6E2012563269000A75B81 /* AddFridgeItemVC.swift in Sources */,
+				08D6E20C256457C900A75B81 /* LaunchScreenVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

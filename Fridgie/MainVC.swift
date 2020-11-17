@@ -61,6 +61,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
                 print("not good to go")
             }
         })
+        
+        self.searchBarCustom.barTintColor = UIColor.white
+        self.searchBarCustom.searchTextField.tintColor = UIColor.black
+        self.searchBarCustom.backgroundColor = UIColor.white
+        self.searchBarCustom.searchTextField.textColor = UIColor.black
+        self.searchBarCustom.searchTextField.tintColor = UIColor.black
+        self.searchBarCustom.searchTextField.setLeftIcon(UIImage(named: "searchIcon")!)
     }
     
     //MARK: ViewWill Appear
@@ -84,6 +91,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
             self.closeFridge()
         }
 
+    }
+    
+    //MARK: Status Bar Style
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .darkContent
     }
     
     //MARK: Handle Top Refresh
@@ -131,9 +143,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         }
     }
     
-    //MARK: Cell For ROw
+    //MARK: Cell For Row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = fridgeTV.dequeueReusableCell(withIdentifier: "fridgeCell") as! FridgeCell
+        
+        cell.name.textColor = UIColor.black
+        cell.backgroundColor = UIColor.white
+        cell.backgroundView?.backgroundColor = UIColor.white
+        
+        self.fridgeTV.backgroundColor = UIColor.white
+        self.fridgeTV.tintColor = UIColor.white
+        self.searchBarView.backgroundColor = UIColor.white
+        self.searchBarCustom.backgroundColor = UIColor.white
         
         var dataToUse: CurrentInventory
 
