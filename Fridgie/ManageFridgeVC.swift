@@ -185,7 +185,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func addFridgeItemAction(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "addItem", sender: self)
     }
     
     

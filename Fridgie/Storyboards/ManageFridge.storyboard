@@ -159,7 +159,7 @@
                         <outlet property="manageFridgeTV" destination="Mnk-21-MKb" id="DDW-1a-k94"/>
                         <outlet property="manageSearchBar" destination="SH4-gk-otl" id="rrb-zW-6oY"/>
                         <outlet property="titleLabel" destination="q52-KT-imv" id="y1v-ay-ip2"/>
-                        <segue destination="tdH-uO-nHa" kind="show" id="foq-bL-V9K"/>
+                        <segue destination="tdH-uO-nHa" kind="show" identifier="addItem" id="foq-bL-V9K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLQ-MI-O9q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -296,7 +296,6 @@
                             <constraint firstItem="YEt-zn-Bs2" firstAttribute="trailing" secondItem="xeZ-En-Lia" secondAttribute="trailing" constant="58" id="Ovm-4R-3Wl"/>
                             <constraint firstItem="PI6-5A-1dd" firstAttribute="leading" secondItem="YEt-zn-Bs2" secondAttribute="leading" constant="58" id="SHf-Pv-chA"/>
                             <constraint firstItem="jph-52-zMf" firstAttribute="top" secondItem="PI6-5A-1dd" secondAttribute="bottom" constant="26" id="Veh-hT-ypn"/>
-                            <constraint firstItem="YEt-zn-Bs2" firstAttribute="bottom" secondItem="jph-52-zMf" secondAttribute="bottom" constant="51" id="Vli-MT-C2J"/>
                             <constraint firstItem="8pS-eG-6gy" firstAttribute="top" secondItem="uYA-A4-E7e" secondAttribute="bottom" constant="10" id="Vwf-sT-l50"/>
                             <constraint firstItem="YEt-zn-Bs2" firstAttribute="trailing" secondItem="kSl-Tw-elp" secondAttribute="trailing" constant="58" id="Wwt-bq-GG0"/>
                             <constraint firstItem="rJ5-w7-yEr" firstAttribute="leading" secondItem="YEt-zn-Bs2" secondAttribute="leading" constant="58" id="ahf-DT-mZV"/>
@@ -323,10 +322,15 @@
                     <connections>
                         <outlet property="addItemBtn" destination="jph-52-zMf" id="kwf-yc-a1N"/>
                         <outlet property="barcodeValueField" destination="PI6-5A-1dd" id="yHK-KS-doi"/>
+                        <outlet property="barcodeValueLabel" destination="8zg-97-JMc" id="3Cv-2v-I2E"/>
                         <outlet property="closeBtn" destination="ca2-HZ-egb" id="ygH-lX-KgR"/>
+                        <outlet property="foodGroupLabel" destination="tfD-X5-csf" id="jrZ-xp-Jad"/>
                         <outlet property="foodGroupSegment" destination="rJ5-w7-yEr" id="OdQ-K6-rdg"/>
                         <outlet property="itemNameField" destination="xeZ-En-Lia" id="MV3-Wx-UwZ"/>
+                        <outlet property="itemNameLabel" destination="kSl-Tw-elp" id="hju-gA-Vt2"/>
                         <outlet property="quantityField" destination="8pS-eG-6gy" id="kos-xg-PkE"/>
+                        <outlet property="quantityLabel" destination="uYA-A4-E7e" id="8yt-4j-pKO"/>
+                        <outlet property="titleLabel" destination="ONM-TT-bg4" id="BPh-Eh-a9Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uI8-en-iFv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
