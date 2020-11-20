@@ -113,26 +113,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
 
     }
 
-    @IBAction func dontTouch(_ sender: Any) {
-//        if self.currentContents.count >= 1 {
-//            self.currentContents.removeAll()
-//        }
-//
-//        postFridgeItem(itemName: "newFridge", quantity: 10, barcodeValue: "12412421", category: "vegFruit", completionHandler: {success, result in
-//            if success == true {
-//                print("something happened")
-//            } else {
-//                print("something bad has happened")
-//            }
-//        })
-//        grabFridgeItems(completionHandler: { success, response in
-//            if success == true {
-//                print("good to go")
-//            } else {
-//                print("not good to go")
-//            }
-//        })
-    }
     
     //MARK: Number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -206,7 +186,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
                 UIView.animate(withDuration: 0.5, animations: {
                     self.closedFridge.alpha = 1
                 },completion: { _ in
-                    self.fridgeTV.alpha = 1
+                    UIView.animate(withDuration: 0.5, animations: {
+                        self.fridgeTV.alpha = 1
+                    })
                     return
                 })
             } else {

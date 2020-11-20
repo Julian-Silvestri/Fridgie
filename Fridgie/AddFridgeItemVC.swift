@@ -9,6 +9,8 @@ import UIKit
 
 class AddFridgeItemVC: UIViewController {
     
+    @IBOutlet weak var scannerBtn: UIButton!
+    @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var barcodeValueLabel: UILabel!
     @IBOutlet weak var foodGroupLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
@@ -25,7 +27,6 @@ class AddFridgeItemVC: UIViewController {
     var quantity: Int?
     var foodGroup: String?
     var barcode: String?
-    var tapGesture = UITapGestureRecognizer()
     var quantityIsTapped: Bool?
     var barcodeIsTapped: Bool?
 
@@ -67,116 +68,47 @@ class AddFridgeItemVC: UIViewController {
             
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-//        NotificationCenter.default.addObserver(self, selector: Selector(("keyboardWillShow:")), name:UIResponder.keyboardWillShowNotification, object: nil);
-//        NotificationCenter.default.addObserver(self, selector: Selector(("keyboardWillHide:")), name:UIResponder.keyboardWillHideNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
+
         
         self.barcodeValueField.layer.borderWidth = 1
         self.quantityField.layer.borderWidth = 1
         self.itemNameField.layer.borderWidth = 1
+        self.scannerBtn.layer.cornerRadius = 5
         self.barcodeValueField.text = self.barcode
         self.addItemBtn.layer.cornerRadius = 8
-        self.tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOccured))
-        self.view.addGestureRecognizer(self.tapGesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(tapOccured))
+        tapGesture.delegate = self
+        tapGesture.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapGesture)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
-    
-    
-    @objc func keyboardWillShow(sender: NSNotification) {
-        
-        if self.quantityField.isEditing == true {
-            self.quantityLabel.frame.origin.y -= 10
-            self.quantityField.frame.origin.y -= 10
-        } else if self.barcodeValueField.isEditing == true {
-//            self.foodGroupSegment.frame.origin.y -= 50
-//            self.foodGroupLabel.frame.origin.y -= 50
-//            self.quantityLabel.frame.origin.y -= 30
-//            self.quantityField.frame.origin.y -= 30
-            self.barcodeValueField.frame.origin.y -= 150
-            self.barcodeValueLabel.frame.origin.y -= 150
-        }
-    
+    //MARK: Status Bar Style
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .darkContent
     }
-
-//    @objc func keyboardWillHide(sender: NSNotification) {
-//        if self.quantityField.isEditing == false {
-//            self.quantityField.frame.origin.y += 10
-//            self.quantityField.frame.origin.y += 10
-//        } else if self.barcodeValueField.isEditing == false {
-//            self.barcodeValueField.frame.origin.y += 50
-//            self.barcodeValueLabel.frame.origin.y += 50
-//        }
-//    }
+    
     
     //MARK: Tap Occured
     @objc func tapOccured(){
-        print("TAP OCCURED")
-
-        self.view.endEditing(true)
-        
-//        if self.quantityField.frame.origin.y == 238 {
-//            self.quantityField.frame.origin.y += 10
-//            self.quantityLabel.frame.origin.y += 10
-//        } else if self.barcodeValueField.frame.origin.y == 319 {
-//            self.foodGroupSegment.frame.origin.y += 50
-//            self.foodGroupLabel.frame.origin.y += 50
-//            self.quantityLabel.frame.origin.y += 30
-//            self.quantityField.frame.origin.y += 30
-//            self.barcodeValueField.frame.origin.y += 150
-//            self.barcodeValueLabel.frame.origin.y += 150
-//        }
-    }
-    
-    func quantityTapped() {
-        self.quantityIsTapped = true
-        if self.quantityLabel.frame.origin.y != 238 {
-            self.quantityLabel.frame.origin.y -= 10
-            self.quantityField.frame.origin.y -= 10
-        } else {
-            return
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += 60
+            self.view.endEditing(true)
         }
 
     }
     
-    func untapQuantity() {
-        self.quantityIsTapped = false
-        if self.quantityLabel.frame.origin.y != 238 {
-            self.quantityLabel.frame.origin.y += 10
-            self.quantityField.frame.origin.y += 10
-        } else {
-            return
-        }
-
-    }
-    
-    func barcodeTapped() {
-        self.barcodeIsTapped = true
-        if self.barcodeValueLabel.frame.origin.y != 319 {
-            self.barcodeValueField.frame.origin.y -= 150
-            self.barcodeValueLabel.frame.origin.y -= 150
-            self.foodGroupSegment.frame.origin.y -= 10
-            self.foodGroupLabel.frame.origin.y -= 10
-            self.quantityLabel.frame.origin.y -= 10
-            self.quantityField.frame.origin.y -= 10
-        }
-    }
-    
-    func untapBarcode() {
-        self.barcodeIsTapped = true
-        if self.barcodeValueLabel.frame.origin.y != 319 {
-            self.barcodeValueField.frame.origin.y -= 150
-            self.barcodeValueLabel.frame.origin.y -= 150
-            self.foodGroupSegment.frame.origin.y -= 10
-            self.foodGroupLabel.frame.origin.y -= 10
-            self.quantityLabel.frame.origin.y -= 10
-            self.quantityField.frame.origin.y -= 10
+    //MARK: Keyboard Will Show
+    @objc func keyboardWillShow(sender: NSNotification) {
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= 60
         }
     }
     
@@ -196,5 +128,32 @@ class AddFridgeItemVC: UIViewController {
         })
         
     }
+    @IBAction func scannerBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "scanner", sender: self)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
     
 }
+
+extension AddFridgeItemVC: UIGestureRecognizerDelegate {
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+
+}
+//extension UIViewController {
+//    func hideKeyboardWhenTappedAround() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//
+//    @objc func dismissKeyboard() {
+//        view.endEditing(true)
+//        self.mainStackView.frame.origin.y += 60
+//    }
+//}

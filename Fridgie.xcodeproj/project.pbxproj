@@ -24,6 +24,10 @@
 		08D6E1F9256310DC00A75B81 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6E1F8256310DC00A75B81 /* Gif.swift */; };
 		08D6E2012563269000A75B81 /* AddFridgeItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6E2002563269000A75B81 /* AddFridgeItemVC.swift */; };
 		08D6E20C256457C900A75B81 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D6E20B256457C900A75B81 /* LaunchScreenVC.swift */; };
+		08DA0C7E256709C800B14308 /* BarcodeScannerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DA0C7D256709C700B14308 /* BarcodeScannerVC.swift */; };
+		08DA0C8625670B5200B14308 /* BarcodeScanner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08DA0C8525670B5200B14308 /* BarcodeScanner.storyboard */; };
+		08DA0C8B256710E100B14308 /* GroceryList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08DA0C8A256710E100B14308 /* GroceryList.storyboard */; };
+		08DA0C902567114800B14308 /* GroceryListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DA0C8F2567114800B14308 /* GroceryListVC.swift */; };
 		08F543A22559D5F20040D71F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F543A12559D5F20040D71F /* Functions.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,10 @@
 		08D6E1F8256310DC00A75B81 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		08D6E2002563269000A75B81 /* AddFridgeItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFridgeItemVC.swift; sourceTree = "<group>"; };
 		08D6E20B256457C900A75B81 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
+		08DA0C7D256709C700B14308 /* BarcodeScannerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerVC.swift; sourceTree = "<group>"; };
+		08DA0C8525670B5200B14308 /* BarcodeScanner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BarcodeScanner.storyboard; sourceTree = "<group>"; };
+		08DA0C8A256710E100B14308 /* GroceryList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GroceryList.storyboard; sourceTree = "<group>"; };
+		08DA0C8F2567114800B14308 /* GroceryListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryListVC.swift; sourceTree = "<group>"; };
 		08F543A12559D5F20040D71F /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,9 +130,11 @@
 				088A7F112551C7B3006FA513 /* Storyboards */,
 				08D6E2002563269000A75B81 /* AddFridgeItemVC.swift */,
 				088A7EDB2551C799006FA513 /* AppDelegate.swift */,
+				08DA0C7D256709C700B14308 /* BarcodeScannerVC.swift */,
 				088A7F1A2551CFFC006FA513 /* Classes.swift */,
 				08D6E1F32563105200A75B81 /* CustomLoader.swift */,
 				08F543A12559D5F20040D71F /* Functions.swift */,
+				08DA0C8F2567114800B14308 /* GroceryListVC.swift */,
 				088A7F152551CDD9006FA513 /* Globals.swift */,
 				08D6E1F8256310DC00A75B81 /* Gif.swift */,
 				08D6E20B256457C900A75B81 /* LaunchScreenVC.swift */,
@@ -162,6 +172,8 @@
 				088A7EE92551C79B006FA513 /* LaunchScreen.storyboard */,
 				088A7EE12551C799006FA513 /* Main.storyboard */,
 				088A7F222551D411006FA513 /* ManageFridge.storyboard */,
+				08DA0C8525670B5200B14308 /* BarcodeScanner.storyboard */,
+				08DA0C8A256710E100B14308 /* GroceryList.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -269,8 +281,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08DA0C8B256710E100B14308 /* GroceryList.storyboard in Resources */,
 				088A7F232551D411006FA513 /* ManageFridge.storyboard in Resources */,
 				088A7EEB2551C79B006FA513 /* LaunchScreen.storyboard in Resources */,
+				08DA0C8625670B5200B14308 /* BarcodeScanner.storyboard in Resources */,
 				088A7EE82551C79B006FA513 /* Assets.xcassets in Resources */,
 				088A7EE32551C799006FA513 /* Main.storyboard in Resources */,
 			);
@@ -303,7 +317,9 @@
 				088A7F1B2551CFFC006FA513 /* Classes.swift in Sources */,
 				08D6E1F9256310DC00A75B81 /* Gif.swift in Sources */,
 				08F543A22559D5F20040D71F /* Functions.swift in Sources */,
+				08DA0C7E256709C800B14308 /* BarcodeScannerVC.swift in Sources */,
 				088A7EE62551C799006FA513 /* Fridgie.xcdatamodeld in Sources */,
+				08DA0C902567114800B14308 /* GroceryListVC.swift in Sources */,
 				088A7F162551CDD9006FA513 /* Globals.swift in Sources */,
 				088A7EDE2551C799006FA513 /* SceneDelegate.swift in Sources */,
 				088A7F282551D43F006FA513 /* ManageFridgeVC.swift in Sources */,

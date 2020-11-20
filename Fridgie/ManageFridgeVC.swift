@@ -62,6 +62,12 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewWillAppear(animated)
     }
     
+    //MARK: Status Bar Style
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .darkContent
+    }
+    
+    
     //MARK: Height For Row At
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 113
@@ -89,6 +95,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.nameLabel.textColor = UIColor.black
         cell.foodGroupLabel.textColor = UIColor.black
         cell.quantityLabel.textColor = UIColor.black
+        cell.deleteBtn.layer.cornerRadius = 5
         
         let data: CurrentInventory
         
@@ -185,6 +192,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func addFridgeItemAction(_ sender: Any) {
+        
         self.performSegue(withIdentifier: "addItem", sender: self)
     }
     

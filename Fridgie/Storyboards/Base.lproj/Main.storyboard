@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ogFridge" translatesAutoresizingMaskIntoConstraints="NO" id="93l-am-scJ">
-                                <rect key="frame" x="9" y="95" width="365" height="523"/>
+                                <rect key="frame" x="16" y="95" width="358" height="523"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="523" id="7AD-cp-W9a"/>
                                 </constraints>
@@ -28,15 +28,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="CloseDoor"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yul-Cs-RCk">
-                                <rect key="frame" x="16" y="18" width="83" height="30"/>
-                                <state key="normal" title="Don't Touch"/>
-                                <connections>
-                                    <action selector="dontTouch:" destination="Fk0-kW-FJv" eventType="touchUpInside" id="JR3-Wj-dmH"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyFridgeContents" translatesAutoresizingMaskIntoConstraints="NO" id="45f-4p-xeY">
-                                <rect key="frame" x="56" y="266" width="256" height="317"/>
+                                <rect key="frame" x="58" y="266" width="256" height="317"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="317" id="XLL-s5-9xO"/>
                                 </constraints>
@@ -51,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F1w-7l-jMV">
-                                <rect key="frame" x="56" y="187" width="256" height="388"/>
+                                <rect key="frame" x="58" y="187" width="256" height="388"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="388" id="uce-No-2MD"/>
@@ -108,23 +101,20 @@
                         <viewLayoutGuide key="safeArea" id="JFc-Nd-aux"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Yul-Cs-RCk" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="16" id="AVL-D6-AHR"/>
                             <constraint firstItem="E48-pw-DL1" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="56" id="Gi5-wd-t6B"/>
                             <constraint firstItem="E48-pw-DL1" firstAttribute="top" secondItem="JFc-Nd-aux" secondAttribute="top" constant="12" id="I9T-5J-kY6"/>
                             <constraint firstItem="45f-4p-xeY" firstAttribute="top" secondItem="E48-pw-DL1" secondAttribute="bottom" constant="173" id="Idk-oZ-5jF"/>
                             <constraint firstItem="F1w-7l-jMV" firstAttribute="top" secondItem="E48-pw-DL1" secondAttribute="bottom" constant="94" id="KMl-tC-rOQ"/>
-                            <constraint firstItem="45f-4p-xeY" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="56" id="LpC-jI-2n8"/>
-                            <constraint firstItem="F1w-7l-jMV" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="56" id="Q6Z-20-hEf"/>
-                            <constraint firstItem="93l-am-scJ" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="9" id="QLI-0k-XXv"/>
+                            <constraint firstItem="45f-4p-xeY" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="58" id="LpC-jI-2n8"/>
+                            <constraint firstItem="F1w-7l-jMV" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="58" id="Q6Z-20-hEf"/>
+                            <constraint firstItem="93l-am-scJ" firstAttribute="leading" secondItem="JFc-Nd-aux" secondAttribute="leading" constant="16" id="QLI-0k-XXv"/>
                             <constraint firstItem="JFc-Nd-aux" firstAttribute="bottom" secondItem="F1w-7l-jMV" secondAttribute="bottom" constant="43" id="VcH-Ao-gnk"/>
-                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Yul-Cs-RCk" secondAttribute="trailing" symbolic="YES" id="WQg-DQ-IcX"/>
                             <constraint firstItem="93l-am-scJ" firstAttribute="top" secondItem="E48-pw-DL1" secondAttribute="bottom" constant="2" id="Yph-F2-hka"/>
-                            <constraint firstItem="Yul-Cs-RCk" firstAttribute="top" secondItem="JFc-Nd-aux" secondAttribute="top" constant="18" id="ZMI-Xa-f7c"/>
                             <constraint firstItem="93l-am-scJ" firstAttribute="bottom" secondItem="JFc-Nd-aux" secondAttribute="bottom" id="jZH-Wg-acT"/>
                             <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="93l-am-scJ" secondAttribute="trailing" constant="1" id="nML-N8-bDc"/>
                             <constraint firstItem="JFc-Nd-aux" firstAttribute="bottom" secondItem="45f-4p-xeY" secondAttribute="bottom" constant="35" id="rs4-oV-IT0"/>
-                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="45f-4p-xeY" secondAttribute="trailing" constant="63" id="svl-YE-FoB"/>
-                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="F1w-7l-jMV" secondAttribute="trailing" constant="63" id="tXt-6N-mno"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="45f-4p-xeY" secondAttribute="trailing" constant="61" id="svl-YE-FoB"/>
+                            <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="F1w-7l-jMV" secondAttribute="trailing" constant="61" id="tXt-6N-mno"/>
                             <constraint firstItem="JFc-Nd-aux" firstAttribute="trailing" secondItem="E48-pw-DL1" secondAttribute="trailing" constant="57" id="xTa-8k-n3p"/>
                         </constraints>
                         <variation key="default">
@@ -146,6 +136,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fA-Zo-9Li" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1055.2" y="147.97601199400302"/>
+        </scene>
+        <!--GroceryList-->
+        <scene sceneID="8MK-dG-q2P">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GroceryList" id="k4g-xB-IB6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="listIcon" id="n12-By-pZK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="txH-6f-6dT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="446" y="670"/>
         </scene>
         <!--ManageFridge-->
         <scene sceneID="8xd-jW-Why">
@@ -172,6 +172,7 @@
                     <connections>
                         <segue destination="Fk0-kW-FJv" kind="relationship" relationship="viewControllers" id="lw0-KH-IVu"/>
                         <segue destination="6gC-4R-PUJ" kind="relationship" relationship="viewControllers" id="x0g-ez-yRs"/>
+                        <segue destination="k4g-xB-IB6" kind="relationship" relationship="viewControllers" id="Q1d-MF-Ne5"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="icn-LS-68V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -183,6 +184,7 @@
         <image name="editfile" width="25" height="25"/>
         <image name="emptyFridgeContents" width="554" height="800"/>
         <image name="fridgeIcon24" width="24" height="24"/>
+        <image name="listIcon" width="25" height="25"/>
         <image name="ogFridge" width="800" height="972"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

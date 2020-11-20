@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ogFridge" translatesAutoresizingMaskIntoConstraints="NO" id="iyT-Hm-6ha">
-                                <rect key="frame" x="9" y="95" width="365" height="523"/>
+                                <rect key="frame" x="16" y="95" width="358" height="523"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="523" id="ZtR-6R-Ser"/>
                                 </constraints>
@@ -28,7 +28,7 @@
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iyT-Hm-6ha" secondAttribute="bottom" constant="49" id="SNc-Ne-eYJ"/>
-                            <constraint firstItem="iyT-Hm-6ha" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="9" id="VBB-4T-SEm"/>
+                            <constraint firstItem="iyT-Hm-6ha" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="VBB-4T-SEm"/>
                             <constraint firstItem="iyT-Hm-6ha" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-1" id="dL3-Hb-cUJ"/>
                             <constraint firstItem="iyT-Hm-6ha" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="95" id="hYb-c3-YvR"/>
                         </constraints>
