@@ -25,24 +25,26 @@ class AddFridgeItemVC: UIViewController {
     
     var name: String?
     var quantity: Int?
-    var foodGroup: String?
+    var category: String?
     var barcode: String?
     var quantityIsTapped: Bool?
     var barcodeIsTapped: Bool?
+    var id: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.itemNameField.text = self.name
-        self.quantityField.text = "\(self.foodGroup ?? "")"
+        self.quantityField.text = "\(self.quantity ?? 0)"
+        self.barcodeValueLabel.text = self.barcode
         
-        if self.foodGroup == "grains" {
+        if self.category == "grains" {
             self.foodGroupSegment.selectedSegmentIndex = 1
-        } else if self.foodGroup == "meats" {
+        } else if self.category == "meats" {
             self.foodGroupSegment.selectedSegmentIndex = 0
-        } else if self.foodGroup == "vegFruit" {
+        } else if self.category == "vegFruit" {
             self.foodGroupSegment.selectedSegmentIndex = 3
-        } else if self.foodGroup == "dairy" {
+        } else if self.category == "dairy" {
             self.foodGroupSegment.selectedSegmentIndex = 2
         }
         
@@ -85,7 +87,7 @@ class AddFridgeItemVC: UIViewController {
         self.view.addGestureRecognizer(tapGesture)
         
     }
-    
+    //MARK: View Will Appear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -94,7 +96,6 @@ class AddFridgeItemVC: UIViewController {
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .darkContent
     }
-    
     
     //MARK: Tap Occured
     @objc func tapOccured(){

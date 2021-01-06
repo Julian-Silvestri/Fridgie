@@ -15,10 +15,11 @@ class ManageFridgeCell: UITableViewCell {
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var quantity: UILabel!
+    @IBOutlet weak var editBtn: UIButton!
     
 }
 
-class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var manageSearchBar: UISearchBar!
@@ -28,10 +29,16 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     var searchActive: Bool?
     var refreshController = UIRefreshControl()
     var tapGesture = UITapGestureRecognizer()
+    var itemName = ""
+    var barcodeValue = ""
+    var category = ""
+    var id = ""
+    var quantity = ""
     
     //MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tapGesture.delegate = self
         self.manageFridgeTV.delegate = self
         self.manageFridgeTV.dataSource = self
         self.manageSearchBar.delegate = self
@@ -55,6 +62,9 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.manageSearchBar.searchTextField.tintColor = UIColor.black
         self.tapGesture.addTarget(self, action: #selector(tapOccured))
         self.view.addGestureRecognizer(self.tapGesture)
+        self.tapGesture.cancelsTouchesInView = false
+        self.manageFridgeTV.canCancelContentTouches = false
+        //self.manageFridgeTV.canCancelContentTouches = true
     }
     
     //MARK: View Will Appear
@@ -113,6 +123,35 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    //MARK: Did select row at
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("&&&&&&&&& \(indexPath)")
+        
+        
+        let data: CurrentInventory
+        
+        if self.searchActive == true {
+            data = Globals.filteredCurrentFridgeInventory[indexPath.row]
+            self.id = "\(data.id)"
+            self.category = data.category
+            self.barcodeValue = data.barcode_value
+            self.itemName = data.item_name
+            self.quantity = "\(data.quantity)"
+
+        } else {
+            data = Globals.filteredCurrentFridgeInventory[indexPath.row]
+            self.id = "\(data.id)"
+            self.category = data.category
+            self.barcodeValue = data.barcode_value
+            self.itemName = data.item_name
+            self.quantity = "\(data.quantity)"
+            
+        }
+        
+        self.performSegue(withIdentifier: "editItem", sender: self)
+
+    }
+    
     
     //MARK: IS Filtering
     func isFiltering() ->Bool {
@@ -124,6 +163,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return self.manageSearchBar.text?.isEmpty ?? true
     }
     
+    //MARK: Search Bar cancel button clicked
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false
         self.manageFridgeTV.reloadData()
@@ -185,9 +225,57 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    //MARK: Prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editItem" {
+            let destinationVC = segue.destination as? EditFridgeItemVC
+            destinationVC?.barcode = self.barcodeValue
+            destinationVC?.category = self.category
+            destinationVC?.name = self.itemName
+            destinationVC?.id = self.id
+        }
+        if segue.identifier == "addItem" {
+            let destinationVC = segue.destination as? AddFridgeItemVC
+//            destinationVC?.barcode = self.barcodeValue
+//            destinationVC?.category = self.category
+//            destinationVC?.quantity = self.quantity
+//            destinationVC?.name = self.itemName
+//            destinationVC?.id = self.id
+            
+        }
+        
+    }
+    
+
+    //MARK: Edit Btn Action
+//    @IBAction func editBtnAction(_ sender: Any) {
+//
+//        self.performSegue(withIdentifier: "editItem", sender: self)
+//    }
+    
+    
+    
     //MARK: Tap Occured
     @objc func tapOccured(){
         print("TAP OCCURED")
+        let locationOfTap = tapGesture.location(in: self.manageFridgeTV)
+
+        if tapGesture.view?.isDescendant(of: self.manageFridgeTV) == true {
+            print("tapped inside table view")
+            
+        }
+        
+        
+//        
+//        if tapGesture.location(in: self.manageFridgeTV) >= CGPoint(0.0) {
+//            print("tapped inside table view")
+//        } else {
+//            print("no tap inside table view")
+//            
+//        }
+    
+        print("*&*&")
+        print(locationOfTap)
         self.view.endEditing(true)
     }
     
