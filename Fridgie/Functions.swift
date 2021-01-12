@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 //MARK: Post Item In Fridge
 func postFridgeItem(itemName: String, quantity: Int, barcodeValue: String, category: String, completionHandler: @escaping(Bool?, String?) -> Void) {
@@ -218,4 +219,53 @@ func grabFridgeItems(completionHandler: @escaping(Bool?, String?) -> Void){
     }
     task.resume()
     return
+}
+
+//MARK: Extension Functions
+extension UIViewController {
+    
+    //MARK: UI Style Colors
+    public func establishUIStyle(labels:[UILabel],buttons:[UIButton], textFields:[UITextField], segmentControl:[UISegmentedControl]){
+        
+        for items in buttons{
+            items.layer.cornerRadius = 5
+        }
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            self.view.backgroundColor = UIColor.white
+            for items in labels{
+                items.textColor = UIColor.black
+            }
+            for items in textFields {
+                items.textColor = UIColor.black
+                items.backgroundColor = UIColor.white
+                items.layer.borderWidth = 1
+                items.layer.borderColor = UIColor.black.cgColor
+            }
+            for items in segmentControl{
+                items.tintColor = UIColor.black
+                items.selectedSegmentTintColor = UIColor.black
+                items.backgroundColor = UIColor.gray
+            }
+
+        } else {
+            self.view.backgroundColor = UIColor.black
+            for items in labels {
+                items.textColor = UIColor.white
+            }
+            for items in textFields {
+                items.textColor = UIColor.white
+                items.backgroundColor = UIColor.white
+                items.layer.borderWidth = 1
+                items.layer.borderColor = UIColor.white.cgColor
+            }
+            for items in segmentControl{
+                items.tintColor = UIColor.white
+                items.backgroundColor = UIColor.white
+                items.selectedSegmentTintColor = UIColor.gray
+            }
+        }
+
+    }
+
 }

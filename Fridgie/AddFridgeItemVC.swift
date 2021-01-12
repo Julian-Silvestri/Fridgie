@@ -36,7 +36,7 @@ class AddFridgeItemVC: UIViewController {
         
         self.itemNameField.text = self.name
         self.quantityField.text = "\(self.quantity ?? 0)"
-        self.barcodeValueLabel.text = self.barcode
+        self.barcodeValueField.text = self.barcode
         
         if self.category == "grains" {
             self.foodGroupSegment.selectedSegmentIndex = 1
@@ -48,42 +48,12 @@ class AddFridgeItemVC: UIViewController {
             self.foodGroupSegment.selectedSegmentIndex = 2
         }
         
-        if traitCollection.userInterfaceStyle == .dark{
-            self.view.backgroundColor = UIColor.white
-            self.titleLabel.textColor = UIColor.black
-            self.tabBarController?.view.tintColor = UIColor.black
-            self.tabBarController?.tabBar.barTintColor = UIColor.white
-            self.itemNameField.backgroundColor = UIColor.white
-            self.itemNameLabel.textColor = UIColor.black
-            self.quantityLabel.textColor = UIColor.black
-            self.foodGroupLabel.textColor = UIColor.black
-            self.barcodeValueLabel.textColor = UIColor.black
-            self.itemNameField.tintColor = UIColor.black
-            self.quantityField.backgroundColor = UIColor.white
-            self.barcodeValueField.backgroundColor = UIColor.white
-            self.quantityField.layer.borderColor = UIColor.black.cgColor
-            self.foodGroupSegment.tintColor = UIColor.black
-            self.foodGroupSegment.selectedSegmentTintColor = UIColor.black
-            self.barcodeValueField.layer.borderColor = UIColor.black.cgColor
-            self.barcodeValueField.textColor = UIColor.black
-            self.itemNameField.layer.borderColor = UIColor.black.cgColor
-            
-        }
-        
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil);
+        establishUIStyle(labels: [self.titleLabel,self.itemNameLabel, self.quantityLabel,self.foodGroupLabel,self.barcodeValueLabel], buttons: [self.scannerBtn, self.closeBtn, self.addItemBtn], textFields: [self.itemNameField, self.quantityField, self.barcodeValueField], segmentControl: [self.foodGroupSegment])
 
-        
-        self.barcodeValueField.layer.borderWidth = 1
-        self.quantityField.layer.borderWidth = 1
-        self.itemNameField.layer.borderWidth = 1
-        self.scannerBtn.layer.cornerRadius = 5
-        self.barcodeValueField.text = self.barcode
-        self.addItemBtn.layer.cornerRadius = 8
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(tapOccured))
         tapGesture.delegate = self
         tapGesture.cancelsTouchesInView = false
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(sender:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         self.view.addGestureRecognizer(tapGesture)
         
     }

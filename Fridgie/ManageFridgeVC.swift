@@ -139,7 +139,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.quantity = "\(data.quantity)"
 
         } else {
-            data = Globals.filteredCurrentFridgeInventory[indexPath.row]
+            data = Globals.currentFridgeInventory[indexPath.row]
             self.id = "\(data.id)"
             self.category = data.category
             self.barcodeValue = data.barcode_value
@@ -234,15 +234,15 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             destinationVC?.name = self.itemName
             destinationVC?.id = self.id
         }
-        if segue.identifier == "addItem" {
-            let destinationVC = segue.destination as? AddFridgeItemVC
+//        if segue.identifier == "addItem" {
+//            let destinationVC = segue.destination as? AddFridgeItemVC
 //            destinationVC?.barcode = self.barcodeValue
 //            destinationVC?.category = self.category
 //            destinationVC?.quantity = self.quantity
 //            destinationVC?.name = self.itemName
 //            destinationVC?.id = self.id
             
-        }
+        //}
         
     }
     

@@ -53,6 +53,9 @@
                                     <constraint firstAttribute="height" constant="48" id="nas-89-hxP"/>
                                 </constraints>
                                 <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="closeAction:" destination="4tZ-Re-H4Q" eventType="touchUpInside" id="Fkf-in-sHa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NV0-y9-uxf">
                                 <rect key="frame" x="54" y="549" width="259" height="67"/>
@@ -125,7 +128,6 @@
                             <constraint firstItem="lL7-qr-63A" firstAttribute="leading" secondItem="iCY-VB-OAC" secondAttribute="leading" constant="54" id="0ju-HI-9s5"/>
                             <constraint firstItem="NV0-y9-uxf" firstAttribute="top" secondItem="lL7-qr-63A" secondAttribute="bottom" constant="50" id="5so-qo-Orj"/>
                             <constraint firstItem="iCY-VB-OAC" firstAttribute="trailing" secondItem="lL7-qr-63A" secondAttribute="trailing" constant="62" id="7Ed-4K-yTf"/>
-                            <constraint firstItem="Q7o-HP-wPu" firstAttribute="top" secondItem="yF2-GO-5aF" secondAttribute="bottom" constant="40.5" id="D2a-qn-ow7"/>
                             <constraint firstItem="yF2-GO-5aF" firstAttribute="leading" secondItem="iCY-VB-OAC" secondAttribute="leading" constant="54" id="DIg-yL-h1G"/>
                             <constraint firstItem="iCY-VB-OAC" firstAttribute="trailing" secondItem="scv-Bc-JWr" secondAttribute="trailing" constant="62" id="E2e-rY-Kk2"/>
                             <constraint firstItem="iCY-VB-OAC" firstAttribute="trailing" secondItem="yF2-GO-5aF" secondAttribute="trailing" constant="62" id="EY6-s2-Mo9"/>
@@ -145,10 +147,17 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="barcodeLabel" destination="88d-c3-WqZ" id="uTm-ZL-1j1"/>
+                        <outlet property="barcodeField" destination="88d-c3-WqZ" id="Fpb-Q7-Bws"/>
+                        <outlet property="barcodeLabel" destination="tVi-OK-k1G" id="SuV-2d-TxN"/>
                         <outlet property="categorySegment" destination="lL7-qr-63A" id="iz2-bx-O5m"/>
-                        <outlet property="itemNameLabel" destination="6bM-Lk-rG9" id="DUi-vA-e2n"/>
-                        <outlet property="quantityLabel" destination="ytc-OE-B8c" id="kpb-o0-cSz"/>
+                        <outlet property="closeBtn" destination="6XQ-vW-QoR" id="Csi-ej-9jl"/>
+                        <outlet property="editItemTitle" destination="scv-Bc-JWr" id="vy8-aP-qY9"/>
+                        <outlet property="foodGroupLabel" destination="Q7o-HP-wPu" id="caA-vh-vzB"/>
+                        <outlet property="itemNameField" destination="6bM-Lk-rG9" id="CpS-pi-UbZ"/>
+                        <outlet property="itemNameLabel" destination="He6-P4-wLQ" id="6Ei-Ol-9Ae"/>
+                        <outlet property="quantityField" destination="ytc-OE-B8c" id="aEc-g1-KSO"/>
+                        <outlet property="quantityLabel" destination="hna-yf-XEn" id="HOK-77-aDI"/>
+                        <outlet property="scannerBtn" destination="ckC-Ic-l90" id="Rnx-Y5-JJP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDb-pn-EpT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
