@@ -48,7 +48,7 @@ class AddFridgeItemVC: UIViewController {
             self.foodGroupSegment.selectedSegmentIndex = 2
         }
         
-        establishUIStyle(labels: [self.titleLabel,self.itemNameLabel, self.quantityLabel,self.foodGroupLabel,self.barcodeValueLabel], buttons: [self.scannerBtn, self.closeBtn, self.addItemBtn], textFields: [self.itemNameField, self.quantityField, self.barcodeValueField], segmentControl: [self.foodGroupSegment])
+        establishUIStyle(tbController: self.tabBarController, labels: [self.titleLabel,self.itemNameLabel, self.quantityLabel,self.foodGroupLabel,self.barcodeValueLabel], buttons: [self.scannerBtn, self.closeBtn, self.addItemBtn], textFields: [self.itemNameField, self.quantityField, self.barcodeValueField], segmentControl: [self.foodGroupSegment])
 
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(tapOccured))
         tapGesture.delegate = self
@@ -116,15 +116,3 @@ extension AddFridgeItemVC: UIGestureRecognizerDelegate {
     }
 
 }
-//extension UIViewController {
-//    func hideKeyboardWhenTappedAround() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//
-//    @objc func dismissKeyboard() {
-//        view.endEditing(true)
-//        self.mainStackView.frame.origin.y += 60
-//    }
-//}

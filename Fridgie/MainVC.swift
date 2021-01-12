@@ -32,25 +32,30 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        self.definesPresentationContext = true
-        self.searchBarCustom.delegate = self
-        self.isFridgeOpen = false
-        self.closedFridge.alpha = 1
+        
         self.fridgeTV.delegate = self
         self.fridgeTV.dataSource = self
+        self.definesPresentationContext = true
+        self.searchBarCustom.delegate = self
+        
+        self.searchBarCustom.barTintColor = UIColor.white
+        self.searchBarCustom.searchTextField.tintColor = UIColor.black
+        self.searchBarCustom.backgroundColor = UIColor.white
+        self.searchBarCustom.searchTextField.textColor = UIColor.black
+        self.searchBarCustom.searchTextField.tintColor = UIColor.black
+        self.searchBarCustom.searchTextField.setLeftIcon(UIImage(named: "searchIcon")!)
+        self.isFridgeOpen = false
+        self.closedFridge.alpha = 1
+
         self.view.addGestureRecognizer(tapGesture)
         self.tapGesture.addTarget(self, action: #selector(tapOccured))
-        if traitCollection.userInterfaceStyle == .dark{
-            self.view.backgroundColor = UIColor.white
-            self.titleLabel.textColor = UIColor.black
-            self.tabBarController?.view.tintColor = UIColor.black
-            self.tabBarController?.tabBar.barTintColor = UIColor.white
-            self.fridgeTV.backgroundColor = UIColor.white
-        }
         self.refreshController.attributedTitle = NSAttributedString(string: "Pull To Refresh")
         self.refreshController.addTarget(self, action: #selector(handleTopRefresh), for: .valueChanged)
         self.fridgeTV.addSubview(self.refreshController)
+        establishUIStyle(tbController: self.tabBarController, labels: [self.titleLabel], buttons: nil, textFields: nil, segmentControl: nil)
+        
         grabFridgeItems(completionHandler: { success, response in
             if success == true {
                 print("good to go")
@@ -62,12 +67,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
             }
         })
         
-        self.searchBarCustom.barTintColor = UIColor.white
-        self.searchBarCustom.searchTextField.tintColor = UIColor.black
-        self.searchBarCustom.backgroundColor = UIColor.white
-        self.searchBarCustom.searchTextField.textColor = UIColor.black
-        self.searchBarCustom.searchTextField.tintColor = UIColor.black
-        self.searchBarCustom.searchTextField.setLeftIcon(UIImage(named: "searchIcon")!)
+
     }
     
     //MARK: ViewWill Appear
@@ -233,5 +233,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISe
         self.fridgeTV.reloadData()
 
     }
+    
 }
 

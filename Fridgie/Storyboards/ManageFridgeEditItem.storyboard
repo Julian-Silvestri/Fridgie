@@ -36,6 +36,9 @@
                                 <state key="normal" title="Scanner">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="scannerAction:" destination="4tZ-Re-H4Q" eventType="touchUpInside" id="pTj-xy-EQf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7o-HP-wPu">
                                 <rect key="frame" x="54" y="431" width="259" height="27"/>
@@ -67,6 +70,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveEditAction:" destination="4tZ-Re-H4Q" eventType="touchUpInside" id="uz3-Ii-f67"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lL7-qr-63A">
                                 <rect key="frame" x="54" y="468" width="259" height="32"/>
@@ -157,12 +163,22 @@
                         <outlet property="itemNameLabel" destination="He6-P4-wLQ" id="6Ei-Ol-9Ae"/>
                         <outlet property="quantityField" destination="ytc-OE-B8c" id="aEc-g1-KSO"/>
                         <outlet property="quantityLabel" destination="hna-yf-XEn" id="HOK-77-aDI"/>
+                        <outlet property="saveBtn" destination="NV0-y9-uxf" id="9CS-QE-ExU"/>
                         <outlet property="scannerBtn" destination="ckC-Ic-l90" id="Rnx-Y5-JJP"/>
+                        <segue destination="mi7-yY-YIq" kind="presentation" identifier="scanner" modalPresentationStyle="fullScreen" id="nJm-uG-tbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDb-pn-EpT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136" y="221"/>
+        </scene>
+        <!--BarcodeScanner-->
+        <scene sceneID="oiT-a9-8PL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BarcodeScanner" id="mi7-yY-YIq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ANq-Me-wrZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="172"/>
         </scene>
     </scenes>
     <resources>

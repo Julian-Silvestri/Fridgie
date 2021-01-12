@@ -9,6 +9,7 @@ import UIKit
 
 class EditFridgeItemVC: UIViewController {
     
+    @IBOutlet weak var saveBtn: UIButton!
     @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var scannerBtn: UIButton!
     @IBOutlet weak var foodGroupLabel: UILabel!
@@ -28,8 +29,8 @@ class EditFridgeItemVC: UIViewController {
     var id = ""
 
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
         self.barcodeField.text = self.barcode
         self.quantityField.text = self.quantity
         self.itemNameField.text = self.name
@@ -44,12 +45,25 @@ class EditFridgeItemVC: UIViewController {
             self.categorySegment.selectedSegmentIndex = 3
         }
         
-        establishUIStyle(labels: [self.editItemTitle,self.barcodeLabel,self.quantityLabel,self.barcodeLabel, self.itemNameLabel, self.foodGroupLabel], buttons: [self.closeBtn, self.scannerBtn], textFields: [self.barcodeField, self.quantityField, self.itemNameField], segmentControl: [self.categorySegment])
+        establishUIStyle(tbController: self.tabBarController, labels: [self.editItemTitle,self.barcodeLabel,self.quantityLabel,self.barcodeLabel, self.itemNameLabel, self.foodGroupLabel], buttons: [self.closeBtn, self.scannerBtn, self.saveBtn], textFields: [self.barcodeField, self.quantityField, self.itemNameField], segmentControl: [self.categorySegment])
 
     }
     
+    //MARK: Close Action
     @IBAction func closeAction(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    //MARK: Scanner Action
+    @IBAction func scannerAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "scanner", sender: self)
+    }
+    //MARK: Save Action
+    @IBAction func saveEditAction(_ sender: Any) {
+    }
+    
+    //MARK: Setup view did load
+    func setupViewDidLoad(){
+
     }
     
     

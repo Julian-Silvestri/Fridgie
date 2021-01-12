@@ -8,6 +8,22 @@
 import Foundation
 import UIKit
 
+
+
+func alert(viewController: UIViewController, title: String, message: String, style:UIAlertController.Style, numberOfActions: Int, actionTitles:[String], actionStyles:[UIAlertAction.Style],actions:[((UIAlertAction) -> Void)?]) {
+    
+    let alert = UIAlertController(title: "\n\(title)", message: "\(message)\n\n", preferredStyle: style)
+    
+    for (index, title) in actionTitles.enumerated() {
+        let style = actionStyles[index]
+        let action = UIAlertAction(title: title, style: style, handler: actions[index])
+        alert.addAction(action)
+    }
+    viewController.present(alert, animated: true, completion: nil)
+
+
+}
+
 //MARK: Post Item In Fridge
 func postFridgeItem(itemName: String, quantity: Int, barcodeValue: String, category: String, completionHandler: @escaping(Bool?, String?) -> Void) {
     guard let url = URL(string: "http://192.168.0.23/post_fridge_item.php") else { return }
@@ -225,24 +241,29 @@ func grabFridgeItems(completionHandler: @escaping(Bool?, String?) -> Void){
 extension UIViewController {
     
     //MARK: UI Style Colors
-    public func establishUIStyle(labels:[UILabel],buttons:[UIButton], textFields:[UITextField], segmentControl:[UISegmentedControl]){
+    public func establishUIStyle(tbController: UITabBarController?, labels:[UILabel]?,buttons:[UIButton]?, textFields:[UITextField]?, segmentControl:[UISegmentedControl]?){
         
-        for items in buttons{
+        
+        
+        for items in buttons ?? []{
             items.layer.cornerRadius = 5
         }
         
         if traitCollection.userInterfaceStyle == .dark {
+            
+            tbController?.view.tintColor = UIColor.black
+            tbController?.tabBar.barTintColor = UIColor.white
             self.view.backgroundColor = UIColor.white
-            for items in labels{
+            for items in labels ?? []{
                 items.textColor = UIColor.black
             }
-            for items in textFields {
+            for items in textFields ?? []{
                 items.textColor = UIColor.black
                 items.backgroundColor = UIColor.white
                 items.layer.borderWidth = 1
                 items.layer.borderColor = UIColor.black.cgColor
             }
-            for items in segmentControl{
+            for items in segmentControl ?? []{
                 items.tintColor = UIColor.black
                 items.selectedSegmentTintColor = UIColor.black
                 items.backgroundColor = UIColor.gray
@@ -250,16 +271,16 @@ extension UIViewController {
 
         } else {
             self.view.backgroundColor = UIColor.black
-            for items in labels {
+            for items in labels ?? []{
                 items.textColor = UIColor.white
             }
-            for items in textFields {
+            for items in textFields ?? []{
                 items.textColor = UIColor.white
                 items.backgroundColor = UIColor.white
                 items.layer.borderWidth = 1
                 items.layer.borderColor = UIColor.white.cgColor
             }
-            for items in segmentControl{
+            for items in segmentControl ?? []{
                 items.tintColor = UIColor.white
                 items.backgroundColor = UIColor.white
                 items.selectedSegmentTintColor = UIColor.gray

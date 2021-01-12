@@ -15,8 +15,17 @@ class ManageFridgeCell: UITableViewCell {
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var quantity: UILabel!
-    @IBOutlet weak var editBtn: UIButton!
-    
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        if(selected) {
+            self.selectionStyle = .none
+            self.backgroundColor = UIColor.lightGray
+        } else {
+            self.backgroundColor = UIColor.white
+        }
+    }
+
 }
 
 class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIGestureRecognizerDelegate {
@@ -63,7 +72,6 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tapGesture.addTarget(self, action: #selector(tapOccured))
         self.view.addGestureRecognizer(self.tapGesture)
         self.tapGesture.cancelsTouchesInView = false
-        self.manageFridgeTV.canCancelContentTouches = false
         //self.manageFridgeTV.canCancelContentTouches = true
     }
     
@@ -91,12 +99,14 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             return Globals.currentFridgeInventory.count
         }
     }
-    
+
     //MARK: Cell For Row At
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = manageFridgeTV.dequeueReusableCell(withIdentifier: "manageCell") as! ManageFridgeCell
         
+        cell.selectedBackgroundView?.tintColor = UIColor.clear
+        cell.selectedBackgroundView?.backgroundColor = UIColor.clear
 
         cell.backgroundColor = UIColor.white
         cell.group.textColor = UIColor.black
@@ -106,6 +116,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.foodGroupLabel.textColor = UIColor.black
         cell.quantityLabel.textColor = UIColor.black
         cell.deleteBtn.layer.cornerRadius = 5
+        
         
         let data: CurrentInventory
         
@@ -117,7 +128,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         cell.group.text = data.category
         cell.name.text = data.item_name
-        
+        cell.quantity.text = "\(data.quantity)"
         cell.deleteBtn.tag = data.id
         
         return cell
@@ -204,25 +215,35 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: Delete Action
     @IBAction func deleteBtn(_ sender: UIButton) {
         
-        CustomLoader.instance.showLoaderView()
+        alert(viewController: self, title: "Warning", message: "Are you sure you want to delete this item?", style: .alert, numberOfActions: 2, actionTitles: ["No","Yes"], actionStyles: [.default,.destructive], actions: [{
+            action1 in
+                print("default?")
+                return
+
+        }, { [self]action2 in
+                print("destruction?")
+                CustomLoader.instance.showLoaderView()
+                
+                if searchActive == true {
+                    DispatchQueue.main.async {
+                        Globals.filteredCurrentFridgeInventory.removeAll(where: {$0.id == sender.tag})
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                            self.manageFridgeTV.reloadData()
+                            CustomLoader.instance.hideLoaderView()
+                        })
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        Globals.currentFridgeInventory.removeAll(where: {$0.id == sender.tag})
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                            self.manageFridgeTV.reloadData()
+                            CustomLoader.instance.hideLoaderView()
+                        })
+                    }
+                }
+            }])
         
-        if searchActive == true {
-            DispatchQueue.main.async {
-                Globals.filteredCurrentFridgeInventory.removeAll(where: {$0.id == sender.tag})
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                    self.manageFridgeTV.reloadData()
-                    CustomLoader.instance.hideLoaderView()
-                })
-            }
-        } else {
-            DispatchQueue.main.async {
-                Globals.currentFridgeInventory.removeAll(where: {$0.id == sender.tag})
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                    self.manageFridgeTV.reloadData()
-                    CustomLoader.instance.hideLoaderView()
-                })
-            }
-        }
+
     }
     
     //MARK: Prepare for segue
@@ -233,6 +254,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             destinationVC?.category = self.category
             destinationVC?.name = self.itemName
             destinationVC?.id = self.id
+            destinationVC?.quantity = self.quantity
         }
 //        if segue.identifier == "addItem" {
 //            let destinationVC = segue.destination as? AddFridgeItemVC
@@ -258,22 +280,13 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: Tap Occured
     @objc func tapOccured(){
         print("TAP OCCURED")
+
         let locationOfTap = tapGesture.location(in: self.manageFridgeTV)
 
         if tapGesture.view?.isDescendant(of: self.manageFridgeTV) == true {
             print("tapped inside table view")
             
         }
-        
-        
-//        
-//        if tapGesture.location(in: self.manageFridgeTV) >= CGPoint(0.0) {
-//            print("tapped inside table view")
-//        } else {
-//            print("no tap inside table view")
-//            
-//        }
-    
         print("*&*&")
         print(locationOfTap)
         self.view.endEditing(true)
