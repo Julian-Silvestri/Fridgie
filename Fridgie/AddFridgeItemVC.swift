@@ -90,15 +90,41 @@ class AddFridgeItemVC: UIViewController {
     
     //MARK: Add Item action
     @IBAction func addItemAction(_ sender: Any) {
-        CustomLoader.instance.showLoaderView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            CustomLoader.instance.hideLoaderView()
-            DispatchQueue.main.async {
-                self.dismiss(animated: true, completion: nil)
-            }
-        })
-        
+        postmanPostItem()
+//        CustomLoader.instance.showLoaderView()
+//        var foodGroup = ""
+//
+//        if foodGroupSegment.selectedSegmentIndex == 0 {
+//            foodGroup = "Meats"
+//        } else if foodGroupSegment.selectedSegmentIndex == 1 {
+//            foodGroup = "Grains"
+//        } else if foodGroupSegment.selectedSegmentIndex == 2 {
+//            foodGroup = "Dairy"
+//        } else if foodGroupSegment.selectedSegmentIndex == 3 {
+//            foodGroup = "vegFruit"
+//        }
+//
+//        postFridgeItem(itemName: self.itemNameField.text ?? "", quantity: Int(self.quantityField.text ?? "") ?? 0, barcodeValue: self.barcodeValueField.text ?? "", category: foodGroup, completionHandler: { response, success in
+//            if response == true {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+//                    CustomLoader.instance.hideLoaderView()
+//                    DispatchQueue.main.async {
+//                        self.dismiss(animated: true, completion: nil)
+//                    }
+//                })
+//            } else {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+//                    CustomLoader.instance.hideLoaderView()
+//                    DispatchQueue.main.async {
+//                        alert(viewController: self, title: "Error", message: "Could not add your item into the fridge", style: .alert, numberOfActions: 1, actionTitles: ["Bummer"], actionStyles: [.default], actions: [{ action in
+//                            self.dismiss(animated: true, completion: nil)
+//                        }])
+//                    }
+//                })
+//            }
+//        })
     }
+    
     @IBAction func scannerBtn(_ sender: Any) {
         self.performSegue(withIdentifier: "scanner", sender: self)
     }

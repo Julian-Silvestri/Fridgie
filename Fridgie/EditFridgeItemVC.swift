@@ -22,6 +22,7 @@ class EditFridgeItemVC: UIViewController {
     @IBOutlet weak var quantityField: UITextField!
     @IBOutlet weak var itemNameField: UITextField!
     
+    
     var name = ""
     var quantity = ""
     var barcode = ""
@@ -31,6 +32,8 @@ class EditFridgeItemVC: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        
         self.barcodeField.text = self.barcode
         self.quantityField.text = self.quantity
         self.itemNameField.text = self.name
@@ -45,9 +48,36 @@ class EditFridgeItemVC: UIViewController {
             self.categorySegment.selectedSegmentIndex = 3
         }
         
-        establishUIStyle(tbController: self.tabBarController, labels: [self.editItemTitle,self.barcodeLabel,self.quantityLabel,self.barcodeLabel, self.itemNameLabel, self.foodGroupLabel], buttons: [self.closeBtn, self.scannerBtn, self.saveBtn], textFields: [self.barcodeField, self.quantityField, self.itemNameField], segmentControl: [self.categorySegment])
+        //establishUIStyle(tbController: self.tabBarController, labels: [self.editItemTitle,self.barcodeLabel,self.quantityLabel,self.barcodeLabel, self.itemNameLabel, self.foodGroupLabel], buttons: [self.closeBtn, self.scannerBtn, self.saveBtn], textFields: [self.barcodeField, self.quantityField, self.itemNameField], segmentControl: [self.categorySegment])
+        
+        self.closeBtn.layer.cornerRadius = 5
+        self.scannerBtn.layer.cornerRadius = 5
+        self.saveBtn.layer.cornerRadius = 5
+        self.barcodeField.layer.borderWidth = 1
+        self.quantityField.layer.borderWidth = 1
+        self.itemNameField.layer.borderWidth = 1
+        
+        if traitCollection.userInterfaceStyle == .dark {
+            self.tabBarController?.view.tintColor = UIColor.black
+            self.tabBarController?.tabBar.barTintColor = UIColor.white
+            self.editItemTitle.textColor = UIColor.black
+            self.barcodeLabel.textColor = UIColor.black
+            self.quantityLabel.textColor = UIColor.black
+            self.itemNameLabel.textColor = UIColor.black
+            self.foodGroupLabel.textColor = UIColor.black
+            self.barcodeField.textColor = UIColor.black
+            self.barcodeField.layer.borderColor = UIColor.black.cgColor
+            self.quantityField.layer.borderColor = UIColor.black.cgColor
+            self.quantityField.textColor = UIColor.black
+            self.itemNameField.textColor = UIColor.black
+            self.itemNameField.layer.borderColor = UIColor.black.cgColor
+            
+            self.view.backgroundColor = UIColor.white
+        }
 
     }
+    
+
     
     //MARK: Close Action
     @IBAction func closeAction(_ sender: Any) {

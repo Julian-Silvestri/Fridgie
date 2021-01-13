@@ -47,6 +47,7 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: View Did Load
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshController.addTarget(self, action: #selector(refreshPullDown), for: .valueChanged)
         self.tapGesture.delegate = self
         self.manageFridgeTV.delegate = self
         self.manageFridgeTV.dataSource = self
@@ -85,6 +86,28 @@ class ManageFridgeVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         return .darkContent
     }
     
+    
+    @objc func refreshPullDown(_ sender: UIRefreshControl){
+        print("Refreshing!")
+        
+        grabFridgeItems(completionHandler: {response, success in
+            if response == true {
+                print("end refreshing")
+                DispatchQueue.main.async {
+                    sender.endRefreshing()
+                }
+                
+            } else {
+                DispatchQueue.main.async {
+                    alert(viewController: self, title: "Error!", message: "Could not refresh data!", style: .alert, numberOfActions: 1, actionTitles: ["Bummer"], actionStyles: [.default], actions: [{action1 in
+                        print("ok")
+                        sender.endRefreshing()
+                    }])
+                    
+                }
+            }
+        })
+    }
     
     //MARK: Height For Row At
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
